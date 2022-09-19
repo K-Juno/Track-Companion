@@ -1,13 +1,9 @@
 import styled from 'styled-components';
 
 export default function Home() {
-  return (
-    <div>
-      <Button>Click me!</Button>
-    </div>
-  );
+  return <Title>Title of my App</Title>;
 }
 
-const Button = styled.button`
-  background: aquamarine;
+const Title = styled.h1`
+  text-align: center;
 `;
