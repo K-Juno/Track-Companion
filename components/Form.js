@@ -7,8 +7,8 @@ export default function Form() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    setTitle(event.target.title.value);
-    setLyrics(event.target.lyrics.value);
+    setTitle(event.target.title.value.trim());
+    setLyrics(event.target.lyrics.value.trim());
   }
 
   return (
