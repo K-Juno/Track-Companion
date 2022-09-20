@@ -5,7 +5,7 @@ export default function Form() {
   const [title, setTitle] = useState('');
   const [lyrics, setLyrics] = useState('');
 
-  async function handleSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault();
     setTitle(event.target.title.value.trim());
     setLyrics(event.target.lyrics.value.trim());
@@ -32,7 +32,7 @@ export default function Form() {
             required
           />
         </div>
-        <Button type="submit">You rock!</Button>
+        <Button type="submit">Done!</Button>
       </InputForm>
     </>
   );
