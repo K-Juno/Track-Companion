@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export default function Home() {
-  return <Title>title of my app</Title>;
+  return <Title>Title of my App</Title>;
 }
 
 const Title = styled.h1`

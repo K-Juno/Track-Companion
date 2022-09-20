@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import Form from '../components/Form';
 
@@ -13,4 +12,5 @@ export default function Lyrics() {
 
 const Subtitle = styled.h1`
   text-align: center;
+  font-size: 1.6rem;
 `;
