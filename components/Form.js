@@ -14,7 +14,7 @@ export default function Form() {
   return (
     <>
       <OutputContainer>
-        <Output>"{title ? title : ''}"</Output>
+        <Output>&quot;{title ? title : ''}&quot;</Output>
         <Output>{lyrics ? lyrics : ''}</Output>
       </OutputContainer>
       <InputForm onSubmit={handleSubmit}>
