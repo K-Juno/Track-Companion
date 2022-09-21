@@ -7,16 +7,15 @@ export default function Form() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    const form = event.target;
     setTitle(event.target.title.value.trim());
     setLyrics(event.target.lyrics.value.trim());
+    form.reset();
+    form.title.focus();
   }
 
   return (
     <>
-      <OutputContainer>
-        <Output>&quot;{title ? title : ''}&quot;</Output>
-        <Output>{lyrics ? lyrics : ''}</Output>
-      </OutputContainer>
       <InputForm onSubmit={handleSubmit}>
         Start creating your first idea:
         <div>
@@ -34,6 +33,10 @@ export default function Form() {
         </div>
         <Button type="submit">Done!</Button>
       </InputForm>
+      <OutputContainer>
+        <Output1>{title ? title : ''}</Output1>
+        <Output2>{lyrics ? lyrics : ''}</Output2>
+      </OutputContainer>
     </>
   );
 }
@@ -67,11 +70,24 @@ const OutputContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   gap: 1.1rem;
+  background-color: #e4e6e8;
+  margin: 2rem;
 `;
 
-const Output = styled.output`
+const Output1 = styled.output`
+  padding: 0.3rem;
+  border: 0.1rem solid black;
+  width: 10rem;
+  margin-top: 1rem;
+`;
+
+const Output2 = styled.output`
   padding: 0.3rem;
   border: 0.1rem solid black;
   background-color: #e4e6e8;
+  width: 13rem;
+  height: 8rem;
+  margin-bottom: 1rem;
 `;
