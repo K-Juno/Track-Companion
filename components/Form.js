@@ -8,19 +8,26 @@ export default function Form() {
   function handleSubmit(event) {
     event.preventDefault();
     const form = event.target;
-    setTitle(event.target.title.value.trim());
-    setLyrics(event.target.lyrics.value.trim());
+    setTitle(form.title.value.trim());
+    setLyrics(form.lyrics.value.trim());
     form.reset();
     form.title.focus();
   }
 
   return (
     <>
+      {title && lyrics && (
+        <OutputContainer>
+          <Output1>{title}</Output1>
+          <Output2>{lyrics}</Output2>
+        </OutputContainer>
+      )}
+
       <InputForm onSubmit={handleSubmit}>
         Start creating your first idea:
         <div>
           <label for="title">Title: </label>
-          <input type="text" id="title" name="title" required />
+          <input type="text" id="title" name="title" required maxlength="43" />
         </div>
         <div>
           <LyricsField
@@ -29,14 +36,12 @@ export default function Form() {
             id="lyrics"
             name="lyrics"
             required
+            rows="15"
+            maxlength="100"
           />
         </div>
-        <Button type="submit">Done!</Button>
+        <Button>Done!</Button>
       </InputForm>
-      <OutputContainer>
-        <Output1>{title ? title : ''}</Output1>
-        <Output2>{lyrics ? lyrics : ''}</Output2>
-      </OutputContainer>
     </>
   );
 }
@@ -51,7 +56,7 @@ const InputForm = styled.form`
   margin: 2rem;
 `;
 
-const LyricsField = styled.input`
+const LyricsField = styled.textarea`
   width: 12rem;
   height: 18rem;
   box-shadow: 10px 10px 12px rgba(0, 0, 0, 0.1);
