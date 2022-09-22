@@ -5,6 +5,11 @@ export default function Nav() {
   return (
     <NavContainer>
       <nav>
+        <Link href="/">
+          <A>Home</A>
+        </Link>
+      </nav>
+      <nav>
         <Link href="/lyrics">
           <A>Lyrics</A>
         </Link>
@@ -15,7 +20,7 @@ export default function Nav() {
 
 const NavContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   background-color: #e4e6e8;
   padding: 1.1rem;
 `;
