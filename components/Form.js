@@ -1,10 +1,7 @@
 import styled from 'styled-components';
 import { nanoid } from 'nanoid';
-import { useRouter } from 'next/router';
 
 export default function Form({ onAddLyrics }) {
-  const router = useRouter();
-
   function handleSubmit(event) {
     event.preventDefault();
     const form = event.target;
@@ -35,6 +32,7 @@ export default function Form({ onAddLyrics }) {
             name="title"
             required
             maxLength="25"
+            pattern="[A-Za-z0-9._$%/+-=!]+[A-Za-z0-9._$%/+-=! ]{1,}"
           />
         </div>
         <div>
@@ -65,11 +63,12 @@ const InputForm = styled.form`
 `;
 
 const TitleField = styled.input`
-  width: fit-content;
+  margin-top: 1rem;
+  width: 9rem;
 `;
 
 const LyricsField = styled.textarea`
-  width: fit-content;
+  width: 15rem;
   height: 18rem;
   box-shadow: 10px 10px 12px rgba(0, 0, 0, 0.1);
   border: 0.1rem solid black;

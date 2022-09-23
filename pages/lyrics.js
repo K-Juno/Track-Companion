@@ -12,7 +12,6 @@ export default function Lyrics() {
   return (
     <>
       <Subtitle>Lyrics</Subtitle>
-
       {lyricsList.map((lyrics) => {
         return (
           <SongCard
@@ -22,7 +21,6 @@ export default function Lyrics() {
           />
         );
       })}
-
       <Form onAddLyrics={handleAddLyrics} />
     </>
   );
