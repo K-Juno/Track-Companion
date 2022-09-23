@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import Form from '../../components/Form';
-import SongCard from '../../components/SongCard';
+import Form from '../components/Form';
+import SongCard from '../components/SongCard';
 
 export default function Lyrics() {
   const [lyricsList, setLyricsList] = useState([]);

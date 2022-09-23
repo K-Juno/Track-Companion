@@ -6,12 +6,12 @@ export default function Nav() {
     <NavContainer>
       <nav>
         <Link href="/">
-          <A>Home</A>
+          <NavTag>Home</NavTag>
         </Link>
       </nav>
       <nav>
         <Link href="/lyrics">
-          <A>Lyrics</A>
+          <NavTag>Lyrics</NavTag>
         </Link>
       </nav>
     </NavContainer>
@@ -25,7 +25,7 @@ const NavContainer = styled.div`
   padding: 1.1rem;
 `;
 
-const A = styled.a`
+const NavTag = styled.a`
   text-decoration: none;
   border: 0.1rem solid transparent;
   border-radius: 0.2rem;
