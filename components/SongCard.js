@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export default function SongCard({ title, lyrics }) {
   return (
     <LyricsContainer>
-      <NewTitle>"{title}"</NewTitle>
+      <NewTitle>&quot;{title}&quot;</NewTitle>
       <NewText style={{ whiteSpace: 'pre-line' }}>{lyrics}</NewText>
     </LyricsContainer>
   );
