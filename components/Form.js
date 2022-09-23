@@ -1,33 +1,41 @@
-import { useState } from 'react';
 import styled from 'styled-components';
+import { nanoid } from 'nanoid';
+import { useRouter } from 'next/router';
 
-export default function Form() {
-  const [title, setTitle] = useState('');
-  const [lyrics, setLyrics] = useState('');
+export default function Form({ onAddLyrics }) {
+  const router = useRouter();
 
   function handleSubmit(event) {
     event.preventDefault();
     const form = event.target;
-    setTitle(form.title.value.trim());
-    setLyrics(form.lyrics.value.trim());
+    const title = form.title.value.trim();
+    const lyrics = form.lyrics.value.trim();
+
+    const newLyrics = {
+      id: nanoid(),
+      title: title,
+      lyrics: lyrics,
+    };
+
+    onAddLyrics(newLyrics);
+
     form.reset();
     form.title.focus();
   }
 
   return (
     <>
-      {title && lyrics && (
-        <OutputContainer>
-          <Output1>{title}</Output1>
-          <Output2>{lyrics}</Output2>
-        </OutputContainer>
-      )}
-
       <InputForm onSubmit={handleSubmit}>
         Start creating your first idea:
         <div>
           <label for="title">Title: </label>
-          <input type="text" id="title" name="title" required maxlength="43" />
+          <TitleField
+            type="text"
+            id="title"
+            name="title"
+            required
+            maxLength="25"
+          />
         </div>
         <div>
           <LyricsField
@@ -37,7 +45,7 @@ export default function Form() {
             name="lyrics"
             required
             rows="15"
-            maxlength="100"
+            maxLength="1000"
           />
         </div>
         <Button>Done!</Button>
@@ -56,8 +64,12 @@ const InputForm = styled.form`
   margin: 2rem;
 `;
 
+const TitleField = styled.input`
+  width: fit-content;
+`;
+
 const LyricsField = styled.textarea`
-  width: 12rem;
+  width: fit-content;
   height: 18rem;
   box-shadow: 10px 10px 12px rgba(0, 0, 0, 0.1);
   border: 0.1rem solid black;
@@ -69,30 +81,4 @@ const Button = styled.button`
   border-radius: 0.3rem;
   padding: 0.3rem;
   background-color: #719c6d;
-`;
-
-const OutputContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 1.1rem;
-  background-color: #e4e6e8;
-  margin: 2rem;
-`;
-
-const Output1 = styled.output`
-  padding: 0.3rem;
-  border: 0.1rem solid black;
-  width: 10rem;
-  margin-top: 1rem;
-`;
-
-const Output2 = styled.output`
-  padding: 0.3rem;
-  border: 0.1rem solid black;
-  background-color: #e4e6e8;
-  width: 13rem;
-  height: 8rem;
-  margin-bottom: 1rem;
 `;
