@@ -46,7 +46,7 @@ export default function Form({ onAddLyrics }) {
             maxLength="1000"
           />
         </div>
-        <Button>Let's go ✓</Button>
+        <Button>Let&apos;s go ✓</Button>
       </InputForm>
     </>
   );
