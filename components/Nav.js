@@ -21,7 +21,7 @@ export default function Nav() {
 const NavContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
-  background-color: #e4e6e8;
+  background-color: #40556b;
   padding: 1.1rem;
 `;
 
@@ -30,5 +30,6 @@ const NavTag = styled.a`
   border: 0.1rem solid transparent;
   border-radius: 0.2rem;
   padding: 0.3rem;
-  background-color: #708090;
+  background-color: #7e8e96;
+  color: #dfdfdf;
 `;

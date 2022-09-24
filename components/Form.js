@@ -23,9 +23,9 @@ export default function Form({ onAddLyrics }) {
   return (
     <>
       <InputForm onSubmit={handleSubmit}>
-        Start creating your first idea:
+        Start creating your first idea :
         <div>
-          <label for="title">Title: </label>
+          <label for="title">Title : </label>
           <TitleField
             type="text"
             id="title"
@@ -46,7 +46,7 @@ export default function Form({ onAddLyrics }) {
             maxLength="1000"
           />
         </div>
-        <Button>Done!</Button>
+        <Button>Let's go ✓</Button>
       </InputForm>
     </>
   );
@@ -57,7 +57,8 @@ const InputForm = styled.form`
   flex-direction: column;
   align-items: center;
   gap: 0.9rem;
-  border: 0.1rem solid black;
+  border: 0.1rem solid #343434;
+  border-radius: 0.3rem;
   padding: 1.3rem;
   margin: 2rem;
 `;
@@ -71,13 +72,17 @@ const LyricsField = styled.textarea`
   width: 15rem;
   height: 18rem;
   box-shadow: 10px 10px 12px rgba(0, 0, 0, 0.1);
-  border: 0.1rem solid black;
+  border: 0.1rem solid #343434;
   border-radius: 0.2rem;
 `;
 
 const Button = styled.button`
   width: 5rem;
-  border-radius: 0.3rem;
+  height: 2.2rem;
+  border-radius: 0.9rem;
   padding: 0.3rem;
-  background-color: #719c6d;
+  background-color: #2f3061;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 0.9rem;
+  color: #dfdfdf;
 `;

@@ -14,28 +14,30 @@ const LyricsContainer = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-color: #e4e6e8;
+  background-color: #e9eefa;
   margin: 2rem;
   border-radius: 1rem;
 `;
 
 const NewTitle = styled.h4`
   padding: 0.3rem;
-  border: 0.1rem solid black;
   width: fit-content;
-  margin-top: 2rem;
+  margin: 1.5rem 0 0 0;
   border-radius: 0.2rem;
+  color: #dfdfdf;
+  background-color: #313c4c;
 `;
 
 const NewText = styled.p`
   padding: 0.8rem;
-  border: 0.1rem solid black;
-  background-color: #e4e6e8;
+  background-color: #f6f8ff;
   height: fit-content;
   min-height: 5rem;
   width: 15rem;
   margin-bottom: 2rem;
   font-size: 15px;
-  border-radius: 0.2rem;
+  border-radius: 0.4rem;
   word-break: break-word;
+  color: #dfdfdf;
+  background-color: #313c4c;
 `;
