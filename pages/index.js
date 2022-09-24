@@ -1,13 +1,10 @@
 import styled from 'styled-components';
 
 export default function Home() {
-  return (
-    <div>
-      <Button>Click me!</Button>
-    </div>
-  );
+  return <Title>u &apos;n&apos; i verse</Title>;
 }
 
-const Button = styled.button`
-  background: aquamarine;
+const Title = styled.h1`
+  text-align: center;
+  font-size: 2rem;
 `;
