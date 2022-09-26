@@ -15,7 +15,7 @@ export default function Collection({ lyricsList }) {
         );
       })}
       <LinkContainer>
-        <Link href="/lyrics">
+        <Link href="/lyrics/collection">
           <LinkTag>go back</LinkTag>
         </Link>
       </LinkContainer>

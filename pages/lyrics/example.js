@@ -66,7 +66,7 @@ Nothing really matters to me
 Any way the wind blows..."
       />
       <LinkContainer>
-        <Link href="/lyrics">
+        <Link href="/lyrics/collection">
           <LinkTag>go back</LinkTag>
         </Link>
       </LinkContainer>

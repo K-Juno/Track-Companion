@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 import GlobalStyle from '../components/GlobalStyles';
 import Layout from '../components/Layout';
 import useLocalStorage from '../hooks/useLocalStorage';

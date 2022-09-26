@@ -21,7 +21,7 @@ export default function Form({ onAddLyrics }) {
 
     form.reset();
     form.title.focus();
-    router.push('/lyrics/${title}');
+    router.push(`/lyrics/${title}`);
   }
 
   return (
@@ -36,7 +36,7 @@ export default function Form({ onAddLyrics }) {
             name="title"
             required
             maxLength="25"
-            pattern="[A-Za-z0-9._$%/+-=!]+[A-Za-z0-9._$%/+-=! ]{1,}"
+            pattern="[A-Za-z0-9._$%/+-='!]+[A-Za-z0-9._$%/+-='! ]{1,}"
           />
         </div>
         <div>

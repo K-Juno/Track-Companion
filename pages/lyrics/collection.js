@@ -1,8 +1,19 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import SongCard from '../../components/SongCard';
+import getAllLyrics from '../../src/services/lyricsService';
 
-export default function Collection({ lyricsList }) {
+export async function getServerSideProps() {
+  const lyrics = await getAllLyrics();
+  console.log(lyrics, 'GET');
+
+  return {
+    props: {
+      lyrics: lyrics,
+    },
+  };
+}
+
+export default function Collection({ lyrics }) {
   return (
     <>
       <PageTitle>Lyrics</PageTitle>
@@ -15,18 +26,13 @@ export default function Collection({ lyricsList }) {
             <LyricsTitle>&quot;Bohemian Rhapsody&quot;</LyricsTitle>
           </Link>
         </li>
-        <li>
-          <Link href="/lyrics/${title}">
-            <LyricsTitle>&quot;new Song&quot;</LyricsTitle>
-          </Link>
-        </li>
-        {lyricsList.map((lyrics) => {
-          return (
-            <li>
-              <SongCard />
-            </li>
-          );
-        })}
+        {lyrics.map((song) => (
+          <li key={song.id}>
+            <Link href={`/lyrics/${song.title}`}>
+              <LyricsTitle>&quot;{song.title}&quot;</LyricsTitle>
+            </Link>
+          </li>
+        ))}
       </ListContainer>
       <LinkContainer>
         <Link href="/lyrics">
@@ -45,8 +51,8 @@ const PageTitle = styled.h1`
 const TitleContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: right;
-  margin: 0 3rem 3rem 0;
+  justify-content: center;
+  margin: 0 0 3rem 0;
 `;
 
 const SubTitle = styled.h3`
