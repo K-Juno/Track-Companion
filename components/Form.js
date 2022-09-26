@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 import { nanoid } from 'nanoid';
+import { useRouter } from 'next/router';
 
 export default function Form({ onAddLyrics }) {
+  const router = useRouter();
+
   function handleSubmit(event) {
     event.preventDefault();
     const form = event.target;
@@ -18,6 +21,7 @@ export default function Form({ onAddLyrics }) {
 
     form.reset();
     form.title.focus();
+    router.push('/lyrics/${title}');
   }
 
   return (
