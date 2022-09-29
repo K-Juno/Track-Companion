@@ -1,5 +1,5 @@
 import dbConnect from '../dbConnect';
-import Lyrics from '../../models/Lyrics';
+import Lyrics from '../models/Lyrics';
 
 export default async function getAllLyrics() {
   await dbConnect();

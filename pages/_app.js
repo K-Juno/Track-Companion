@@ -1,9 +1,9 @@
 import GlobalStyle from '../components/GlobalStyles';
 import Layout from '../components/Layout';
-import useLocalStorage from '../hooks/useLocalStorage';
+import { useState } from 'react';
 
 function MyApp({ Component, pageProps }) {
-  const [lyricsList, setLyricsList] = useLocalStorage('_lyricsList', []);
+  const [lyricsList, setLyricsList] = useState([]);
   function handleAddLyrics(newLyrics) {
     setLyricsList([newLyrics, ...lyricsList]);
   }

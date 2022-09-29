@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import getAllLyrics from '../../src/services/lyricsService';
+import getAllLyrics from '../../services/lyricsService';
 
 export async function getServerSideProps() {
   const lyrics = await getAllLyrics();
@@ -21,11 +21,6 @@ export default function Collection({ lyrics }) {
         <SubTitle>ur awesome collection</SubTitle>
       </TitleContainer>
       <ListContainer>
-        <li>
-          <Link href="/lyrics/example">
-            <LyricsTitle>&quot;Bohemian Rhapsody&quot;</LyricsTitle>
-          </Link>
-        </li>
         {lyrics.map((song) => (
           <li key={song.id}>
             <Link href={`/lyrics/${song.title}`}>

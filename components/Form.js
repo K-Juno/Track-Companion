@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 export default function Form({ onAddLyrics }) {
   const router = useRouter();
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
     const form = event.target;
     const title = form.title.value.trim();
@@ -16,6 +16,12 @@ export default function Form({ onAddLyrics }) {
       title: title,
       lyrics: lyrics,
     };
+
+    await fetch('/api/lyrics/create', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newLyrics),
+    });
 
     onAddLyrics(newLyrics);
 

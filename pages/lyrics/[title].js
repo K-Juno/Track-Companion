@@ -1,19 +1,29 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 import SongCard from '../../components/SongCard';
+import getAllLyrics from '../../services/lyricsService';
 
-export default function Collection({ lyricsList }) {
+export async function getServerSideProps() {
+  const lyrics = await getAllLyrics();
+  console.log(lyrics, 'GET');
+
+  return {
+    props: {
+      lyrics: lyrics,
+    },
+  };
+}
+
+export default function Collection({ lyrics }) {
+  // const selectedSong = lyrics.filter((song) => song.id !== song.id);
+
   return (
     <>
-      {lyricsList.map((lyrics) => {
-        return (
-          <SongCard
-            key={lyrics.id}
-            title={lyrics.title}
-            lyrics={lyrics.lyrics}
-          />
-        );
-      })}
+      {lyrics
+        // .filter((song) => song.id === song.id)
+        .map((song) => (
+          <SongCard key={song.id} title={song.title} lyrics={song.lyrics} />
+        ))}
       <LinkContainer>
         <Link href="/lyrics/collection">
           <LinkTag>go back</LinkTag>
