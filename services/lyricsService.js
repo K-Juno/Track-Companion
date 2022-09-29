@@ -12,3 +12,12 @@ export default async function getAllLyrics() {
 
   return lyricsList;
 }
+
+export async function getLyricsById(songId) {
+  await dbConnect();
+
+  const song = await Lyrics.findById(songId);
+  const { id, title, lyrics } = song;
+
+  return { id, title, lyrics };
+}

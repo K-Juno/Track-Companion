@@ -1,15 +1,25 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import SongCard from '../../components/SongCard';
+import SongCard from '../../../components/SongCard';
+import { getLyricsById } from '../../../services/lyricsService';
 
-export default function NewSong({ lyricsList }) {
+export async function getServerSideProps(context) {
+  const { id } = context.params;
+  const song = await getLyricsById(id);
+
+  return {
+    props: {
+      song,
+    },
+  };
+}
+
+export default function NewSong({ song }) {
   return (
     <>
-      {lyricsList.map((song) => (
-        <SongCard key={song.id} title={song.title} lyrics={song.lyrics} />
-      ))}
+      <SongCard key={song.id} title={song.title} lyrics={song.lyrics} />
       <LinkContainer>
-        <Link href="/lyrics">
+        <Link href="/lyrics/collection">
           <LinkTag>go back</LinkTag>
         </Link>
       </LinkContainer>

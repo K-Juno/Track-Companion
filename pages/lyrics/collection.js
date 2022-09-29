@@ -4,7 +4,6 @@ import getAllLyrics from '../../services/lyricsService';
 
 export async function getServerSideProps() {
   const lyrics = await getAllLyrics();
-  console.log(lyrics, 'GET');
 
   return {
     props: {
@@ -23,7 +22,7 @@ export default function Collection({ lyrics }) {
       <ListContainer>
         {lyrics.map((song) => (
           <li key={song.id}>
-            <Link href={`/lyrics/${song.title}`}>
+            <Link href={`/lyrics/collection/${song.id}`}>
               <LyricsTitle>&quot;{song.title}&quot;</LyricsTitle>
             </Link>
           </li>

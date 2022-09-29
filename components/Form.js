@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { nanoid } from 'nanoid';
 import { useRouter } from 'next/router';
 
-export default function Form({ onAddLyrics }) {
+export default function Form({ onAddLyrics, id }) {
   const router = useRouter();
 
   async function handleSubmit(event) {
