@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 function MyApp({ Component, pageProps }) {
   const [lyricsList, setLyricsList] = useState([]);
+
   function handleAddLyrics(newLyrics) {
     setLyricsList([newLyrics, ...lyricsList]);
   }
