@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 import getAllLyrics from '../../services/lyricsService';
+import Image from 'next/image';
+import trashIcon from '../../public/trash-icon.png';
 
 export async function getServerSideProps() {
   const lyrics = await getAllLyrics();
@@ -21,11 +23,14 @@ export default function Collection({ lyrics }) {
       </TitleContainer>
       <ListContainer>
         {lyrics.map((song) => (
-          <li key={song.id}>
+          <ListItem key={song.id}>
             <Link href={`/lyrics/collection/${song.id}`}>
               <LyricsTitle>&quot;{song.title}&quot;</LyricsTitle>
             </Link>
-          </li>
+            <IconContainer>
+              <Image alt="trash icon" layout="responsive" src={trashIcon} />
+            </IconContainer>
+          </ListItem>
         ))}
       </ListContainer>
       <LinkContainer>
@@ -68,10 +73,15 @@ const ListContainer = styled.ul`
   margin-bottom: 2rem;
 `;
 
+const ListItem = styled.li`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+
 const LyricsTitle = styled.a`
   padding: 0.3rem;
   width: fit-content;
-  margin: 3rem;
   border-radius: 0.2rem;
   color: #dfdfdf;
   background-color: #313c4c;
@@ -91,4 +101,8 @@ const LinkTag = styled.a`
   background-color: #7e8e96;
   color: #dfdfdf;
   margin-bottom: 2rem;
+`;
+
+const IconContainer = styled.div`
+  width: 1.2rem;
 `;
