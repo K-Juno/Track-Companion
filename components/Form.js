@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 import { nanoid } from 'nanoid';
+import { useRouter } from 'next/router';
 
-export default function Form({ onAddLyrics }) {
-  function handleSubmit(event) {
+export default function Form({ onAddLyrics, id }) {
+  const router = useRouter();
+
+  async function handleSubmit(event) {
     event.preventDefault();
     const form = event.target;
     const title = form.title.value.trim();
@@ -14,10 +17,17 @@ export default function Form({ onAddLyrics }) {
       lyrics: lyrics,
     };
 
+    await fetch('/api/lyrics/create', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newLyrics),
+    });
+
     onAddLyrics(newLyrics);
 
     form.reset();
     form.title.focus();
+    router.push(`/lyrics/${title}`);
   }
 
   return (
@@ -32,7 +42,7 @@ export default function Form({ onAddLyrics }) {
             name="title"
             required
             maxLength="25"
-            pattern="[A-Za-z0-9._$%/+-=!]+[A-Za-z0-9._$%/+-=! ]{1,}"
+            pattern="[A-Za-z0-9._$%/+-='!]+[A-Za-z0-9._$%/+-='! ]{1,}"
           />
         </div>
         <div>

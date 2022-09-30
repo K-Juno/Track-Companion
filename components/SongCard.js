@@ -35,7 +35,7 @@ const NewText = styled.p`
   min-height: 5rem;
   width: 15rem;
   margin-bottom: 2rem;
-  font-size: 15px;
+  font-size: 14px;
   border-radius: 0.4rem;
   word-break: break-word;
   color: #dfdfdf;
