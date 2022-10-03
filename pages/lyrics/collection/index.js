@@ -1,38 +1,57 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import getAllLyrics from '../../services/lyricsService';
+import getAllLyrics from '../../../services/lyricsService';
 import Image from 'next/image';
-import trashIcon from '../../public/trash-icon.png';
+import trashIcon from '../../../public/trash-icon.png';
+import { useState } from 'react';
 
 export async function getServerSideProps() {
   const lyrics = await getAllLyrics();
 
   return {
     props: {
-      lyrics: lyrics,
+      lyrics,
     },
   };
 }
 
 export default function Collection({ lyrics }) {
+  const [lyricsList, setLyricsList] = useState(lyrics);
+
+  async function removeLyrics(id) {
+    await fetch(`/api/lyrics/${id}`, {
+      method: 'DELETE',
+    });
+    setLyricsList(
+      lyricsList.filter((lyrics) => {
+        return lyrics.id !== id;
+      })
+    );
+  }
+
   return (
     <>
       <PageTitle>Lyrics</PageTitle>
+
       <TitleContainer>
         <SubTitle>ur awesome collection</SubTitle>
       </TitleContainer>
+
       <ListContainer>
-        {lyrics.map((song) => (
-          <ListItem key={song.id}>
-            <Link href={`/lyrics/collection/${song.id}`}>
-              <LyricsTitle>&quot;{song.title}&quot;</LyricsTitle>
-            </Link>
-            <IconContainer>
-              <Image alt="trash icon" layout="responsive" src={trashIcon} />
-            </IconContainer>
-          </ListItem>
+        {lyricsList.map((song) => (
+          <>
+            <ListItem key={song.id}>
+              <Link href={`/lyrics/collection/${song.id}`}>
+                <LyricsTitle>&quot;{song.title}&quot;</LyricsTitle>
+              </Link>
+              <RemoveButton onClick={() => removeLyrics(song.id)}>
+                <Image alt="trash icon" layout="responsive" src={trashIcon} />
+              </RemoveButton>
+            </ListItem>
+          </>
         ))}
       </ListContainer>
+
       <LinkContainer>
         <Link href="/lyrics">
           <LinkTag>go back</LinkTag>
@@ -103,6 +122,8 @@ const LinkTag = styled.a`
   margin-bottom: 2rem;
 `;
 
-const IconContainer = styled.div`
-  width: 1.2rem;
+const RemoveButton = styled.button`
+  border: 0;
+  background-color: transparent;
+  width: 2rem;
 `;

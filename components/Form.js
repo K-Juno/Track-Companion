@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { nanoid } from 'nanoid';
 import { useRouter } from 'next/router';
 
 export default function Form({ onAddLyrics, id }) {
@@ -12,7 +11,7 @@ export default function Form({ onAddLyrics, id }) {
     const lyrics = form.lyrics.value.trim();
 
     const newLyrics = {
-      id: nanoid(),
+      id: id,
       title: title,
       lyrics: lyrics,
     };

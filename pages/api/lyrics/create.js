@@ -9,6 +9,6 @@ export default async function createHandler(req, res) {
 
     await Lyrics.create(data);
 
-    res.status(201).json({ newLyrics: data });
+    res.status(201).json({ message: 'Lyrics created.' });
   }
 }
