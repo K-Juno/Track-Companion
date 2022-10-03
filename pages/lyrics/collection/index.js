@@ -114,7 +114,7 @@ const LinkContainer = styled.div`
 
 const LinkTag = styled.a`
   text-decoration: none;
-  border: 0.1rem solid transparent;
+  border: 0.1rem solid;
   border-radius: 0.2rem;
   padding: 0.3rem;
   background-color: #7e8e96;
@@ -125,5 +125,11 @@ const LinkTag = styled.a`
 const RemoveButton = styled.button`
   border: 0;
   background-color: transparent;
+  border-radius: 15px;
+  padding: 5px;
   width: 2rem;
+
+  &:hover {
+    border: 0.1rem dotted #313c4c;
+  }
 `;
