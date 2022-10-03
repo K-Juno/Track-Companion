@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import styled from 'styled-components';
+import BackLink from '../../components/BackLink';
 import Form from '../../components/Form';
 
 export default function Lyrics({ onAddLyrics }) {
@@ -29,16 +30,7 @@ const LinkContainer = styled.div`
   margin-right: 2rem;
 `;
 
-const LinkTag = styled.a`
-  text-decoration: none;
-  border: 0.1rem solid transparent;
-  border-radius: 0.2rem;
-  padding: 0.3rem;
-  background-color: #7e8e96;
-  color: #dfdfdf;
-  margin-bottom: 2rem;
-`;
-
-const CollectionLink = styled(LinkTag)`
+const CollectionLink = styled(BackLink)`
   margin-bottom: 0;
+  cursor: pointer;
 `;

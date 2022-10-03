@@ -32,4 +32,5 @@ const NavTag = styled.a`
   padding: 0.3rem;
   background-color: #7e8e96;
   color: #dfdfdf;
+  cursor: pointer;
 `;

@@ -94,4 +94,5 @@ const Button = styled.button`
   font-family: 'Urbanist', sans-serif;
   font-size: 0.9rem;
   color: #dfdfdf;
+  cursor: pointer;
 `;
