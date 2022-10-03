@@ -1,36 +1,61 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import getAllLyrics from '../../services/lyricsService';
+import getAllLyrics from '../../../services/lyricsService';
+import Image from 'next/image';
+import trashIcon from '../../../public/trash-icon.png';
+import { useState } from 'react';
+import BackLink from '../../../components/BackLink';
 
 export async function getServerSideProps() {
   const lyrics = await getAllLyrics();
 
   return {
     props: {
-      lyrics: lyrics,
+      lyrics,
     },
   };
 }
 
 export default function Collection({ lyrics }) {
+  const [lyricsList, setLyricsList] = useState(lyrics);
+
+  async function removeLyrics(id) {
+    await fetch(`/api/lyrics/${id}`, {
+      method: 'DELETE',
+    });
+    setLyricsList(
+      lyricsList.filter((lyrics) => {
+        return lyrics.id !== id;
+      })
+    );
+  }
+
   return (
     <>
       <PageTitle>Lyrics</PageTitle>
+
       <TitleContainer>
         <SubTitle>ur awesome collection</SubTitle>
       </TitleContainer>
+
       <ListContainer>
-        {lyrics.map((song) => (
-          <li key={song.id}>
-            <Link href={`/lyrics/collection/${song.id}`}>
-              <LyricsTitle>&quot;{song.title}&quot;</LyricsTitle>
-            </Link>
-          </li>
+        {lyricsList.map((song) => (
+          <>
+            <ListItem key={song.id}>
+              <Link href={`/lyrics/collection/${song.id}`}>
+                <LyricsTitle>&quot;{song.title}&quot;</LyricsTitle>
+              </Link>
+              <RemoveButton onClick={() => removeLyrics(song.id)}>
+                <Image alt="trash icon" layout="responsive" src={trashIcon} />
+              </RemoveButton>
+            </ListItem>
+          </>
         ))}
       </ListContainer>
+
       <LinkContainer>
         <Link href="/lyrics">
-          <LinkTag>go back</LinkTag>
+          <BackLink>go back</BackLink>
         </Link>
       </LinkContainer>
     </>
@@ -68,13 +93,19 @@ const ListContainer = styled.ul`
   margin-bottom: 2rem;
 `;
 
+const ListItem = styled.li`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+
 const LyricsTitle = styled.a`
   padding: 0.3rem;
   width: fit-content;
-  margin: 3rem;
   border-radius: 0.2rem;
   color: #dfdfdf;
   background-color: #313c4c;
+  cursor: pointer;
 `;
 
 const LinkContainer = styled.div`
@@ -83,12 +114,15 @@ const LinkContainer = styled.div`
   justify-content: center;
 `;
 
-const LinkTag = styled.a`
-  text-decoration: none;
-  border: 0.1rem solid transparent;
-  border-radius: 0.2rem;
-  padding: 0.3rem;
-  background-color: #7e8e96;
-  color: #dfdfdf;
-  margin-bottom: 2rem;
+const RemoveButton = styled.button`
+  border: 0;
+  background-color: transparent;
+  border-radius: 15px;
+  padding: 5px;
+  width: 2rem;
+  cursor: pointer;
+
+  &:hover {
+    border: 0.1rem dotted #313c4c;
+  }
 `;
