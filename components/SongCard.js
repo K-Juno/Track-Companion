@@ -1,8 +1,13 @@
 import styled from 'styled-components';
+import Image from 'next/image';
+import pencilIcon from '../public/pencil-icon.png';
 
 export default function SongCard({ title, lyrics }) {
   return (
     <LyricsContainer>
+      <EditButton>
+        <Image alt="edit-pen icon" layout="responsive" src={pencilIcon} />
+      </EditButton>
       <NewTitle>&quot;{title}&quot;</NewTitle>
       <NewText style={{ whiteSpace: 'pre-line' }}>{lyrics}</NewText>
     </LyricsContainer>
@@ -40,4 +45,23 @@ const NewText = styled.p`
   word-break: break-word;
   color: #dfdfdf;
   background-color: #313c4c;
+`;
+
+const EditButton = styled.button`
+  border: 0.1rem solid #7e8e96;
+  background-color: transparent;
+  border-radius: 11px;
+  padding: 3px;
+  width: 2.2rem;
+  color: white;
+  cursor: pointer;
+  position: fixed;
+  top: 6.4rem;
+  right: 3rem;
+
+  &:hover {
+    border: 0.1rem dotted #313c4c;
+    border-radius: 15px;
+    background-color: #ffffff;
+  }
 `;
