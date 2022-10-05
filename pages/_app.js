@@ -9,6 +9,12 @@ function MyApp({ Component, pageProps }) {
     setLyricsList([newLyrics, ...lyricsList]);
   }
 
+  const [updatedLyricsList, setUpdatedLyricsList] = useState([lyricsList]);
+
+  function handleChangeLyrics(updatedLyrics) {
+    setUpdatedLyricsList([updatedLyrics, ...updatedLyricsList]);
+  }
+
   return (
     <>
       <GlobalStyle />
@@ -17,6 +23,7 @@ function MyApp({ Component, pageProps }) {
           {...pageProps}
           lyricsList={lyricsList}
           onAddLyrics={handleAddLyrics}
+          onChangeLyrics={handleChangeLyrics}
         />
       </Layout>
     </>

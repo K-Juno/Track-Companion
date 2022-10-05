@@ -30,6 +30,14 @@ export default function Collection({ lyrics }) {
     );
   }
 
+  async function getLyrics() {
+    const res = await fetch('/api/lyrics', {
+      method: 'GET',
+    });
+    const newLyricsList = await res.json();
+    setLyricsList(newLyricsList);
+  }
+
   return (
     <>
       <PageTitle>Lyrics</PageTitle>
@@ -38,7 +46,7 @@ export default function Collection({ lyrics }) {
         <SubTitle>ur awesome collection</SubTitle>
       </TitleContainer>
 
-      <ListContainer>
+      <ListContainer onAddLyrics={getLyrics}>
         {lyricsList.map((song) => (
           <>
             <ListItem key={song.id}>
