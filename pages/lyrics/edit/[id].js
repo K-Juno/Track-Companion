@@ -1,9 +1,21 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import BackLink from '../../components/BackLink';
-import Form from '../../components/Form';
+import BackLink from '../../../components/BackLink';
+import UpdateForm from '../../../components/UpdateForm';
+import { getLyricsById } from '../../../services/lyricsService';
 
-export default function Lyrics({ onAddLyrics }) {
+export async function getServerSideProps(context) {
+  const { id } = context.params;
+  const song = await getLyricsById(id);
+
+  return {
+    props: {
+      song,
+    },
+  };
+}
+
+export default function UpdateLyrics({ onChangeValues, song }) {
   return (
     <>
       <PageTitle>Lyrics</PageTitle>
@@ -13,7 +25,11 @@ export default function Lyrics({ onAddLyrics }) {
           <CollectionLink>ur awesome collection</CollectionLink>
         </Link>
       </LinkContainer>
-      <Form onAddLyrics={onAddLyrics} />
+      <UpdateForm
+        onChangeValues={onChangeValues}
+        title={song.title}
+        lyrics={song.lyrics}
+      />
     </>
   );
 }
@@ -32,6 +48,6 @@ const LinkContainer = styled.div`
 `;
 
 const CollectionLink = styled(BackLink)`
-  margin: 0;
+  margin-bottom: 0;
   cursor: pointer;
 `;
