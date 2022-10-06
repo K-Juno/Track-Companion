@@ -21,6 +21,7 @@ export default function Lyrics({ onAddLyrics }) {
 const PageTitle = styled.h1`
   text-align: center;
   font-size: 1.6rem;
+  margin-bottom: 1.5rem;
 `;
 
 const LinkContainer = styled.div`
@@ -31,6 +32,6 @@ const LinkContainer = styled.div`
 `;
 
 const CollectionLink = styled(BackLink)`
-  margin-bottom: 0;
+  margin: 0;
   cursor: pointer;
 `;

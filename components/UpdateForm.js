@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
+import { toast } from 'react-toastify';
 
-export default function Form({ onChangeLyrics, id, title, lyrics }) {
+export default function UpdateForm({ onChangeValues, title, lyrics }) {
   const router = useRouter();
+  const id = router.query.id;
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -11,18 +13,37 @@ export default function Form({ onChangeLyrics, id, title, lyrics }) {
     const updatedLyrics = form.lyrics.value.trim();
 
     const updatedSong = {
-      id: id,
       title: updatedTitle,
       lyrics: updatedLyrics,
     };
 
-    await fetch('/api/lyrics/update', {
+    await fetch(`/api/lyrics/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(updatedSong),
     });
 
-    onChangeLyrics(lyrics, updatedSong);
+    onChangeValues(updatedSong);
+
+    if (updatedTitle.length < 1) {
+      toast('u can find a longer title', {
+        hideProgressBar: true,
+        autoClose: 2000,
+        type: 'info',
+        position: 'top-center',
+      });
+      return false;
+    }
+
+    if (updatedLyrics.length < 3) {
+      toast('u can find more words than that', {
+        hideProgressBar: true,
+        autoClose: 2000,
+        type: 'info',
+        position: 'top-center',
+      });
+      return false;
+    }
 
     form.reset();
     form.title.focus();
@@ -39,10 +60,9 @@ export default function Form({ onChangeLyrics, id, title, lyrics }) {
             type="text"
             id="title"
             name="title"
-            required
             maxLength="25"
             pattern="[A-Za-z0-9._$%/+-='!]+[A-Za-z0-9._$%/+-='! ]{1,}"
-            defaultValue={`${title}`}
+            defaultValue={title}
           />
         </div>
         <div>
@@ -50,11 +70,10 @@ export default function Form({ onChangeLyrics, id, title, lyrics }) {
             type="text"
             placeholder="Keep your ideas rolling!"
             id="lyrics"
-            name="updateLyrics"
-            required
+            name="lyrics"
             rows="15"
             maxLength="1000"
-            defaultValue={`${lyrics}`}
+            defaultValue={lyrics}
           />
         </div>
         <Button>Save ✓</Button>

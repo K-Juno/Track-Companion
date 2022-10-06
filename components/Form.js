@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
+import { toast } from 'react-toastify';
 
 export default function Form({ onAddLyrics, id }) {
   const router = useRouter();
@@ -24,8 +25,23 @@ export default function Form({ onAddLyrics, id }) {
 
     onAddLyrics(newLyrics);
 
+    if (title.length < 1) {
+      toast('u can find a longer title', {
+        hideProgressBar: true,
+        autoClose: 2000,
+        type: 'info',
+        position: 'top-center',
+      });
+      return false;
+    }
+
     if (lyrics.length < 3) {
-      alert('Please try to find a longer songtext.');
+      toast('u can find more words than that', {
+        hideProgressBar: true,
+        autoClose: 2000,
+        type: 'info',
+        position: 'top-center',
+      });
       return false;
     }
 
@@ -44,7 +60,6 @@ export default function Form({ onAddLyrics, id }) {
             type="text"
             id="title"
             name="title"
-            required
             maxLength="25"
             pattern="[A-Za-z0-9._$%/+-='!]+[A-Za-z0-9._$%/+-='! ]{1,}"
           />
@@ -55,7 +70,6 @@ export default function Form({ onAddLyrics, id }) {
             placeholder="Keep your ideas rolling!"
             id="lyrics"
             name="lyrics"
-            required
             rows="15"
             maxLength="1000"
           />

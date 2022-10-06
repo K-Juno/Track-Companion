@@ -1,6 +1,8 @@
 import GlobalStyle from '../components/GlobalStyles';
 import Layout from '../components/Layout';
 import { useState } from 'react';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 function MyApp({ Component, pageProps }) {
   const [lyricsList, setLyricsList] = useState([]);
@@ -11,7 +13,7 @@ function MyApp({ Component, pageProps }) {
 
   const [updatedLyricsList, setUpdatedLyricsList] = useState([lyricsList]);
 
-  function handleChangeLyrics(updatedLyrics) {
+  function handleChangeValues(updatedLyrics) {
     setUpdatedLyricsList([updatedLyrics, ...updatedLyricsList]);
   }
 
@@ -23,8 +25,9 @@ function MyApp({ Component, pageProps }) {
           {...pageProps}
           lyricsList={lyricsList}
           onAddLyrics={handleAddLyrics}
-          onChangeLyrics={handleChangeLyrics}
+          onChangeValues={handleChangeValues}
         />
+        <ToastContainer />
       </Layout>
     </>
   );

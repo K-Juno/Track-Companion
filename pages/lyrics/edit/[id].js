@@ -2,23 +2,20 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import BackLink from '../../../components/BackLink';
 import UpdateForm from '../../../components/UpdateForm';
-import { useState } from 'react';
+import { getLyricsById } from '../../../services/lyricsService';
 
-export default function UpdateLyrics({ onChangeLyrics }) {
-  const [lyricsList, setLyricsList] = useState([]);
+export async function getServerSideProps(context) {
+  const { id } = context.params;
+  const song = await getLyricsById(id);
 
-  function changeLyrics(lyrics, newLyrics) {
-    setLyricsList(
-      lyricsList.map((song) => {
-        if (song.lyrics === lyrics) {
-          return { lyrics: newLyrics };
-        } else {
-          return lyrics;
-        }
-      })
-    );
-  }
+  return {
+    props: {
+      song,
+    },
+  };
+}
 
+export default function UpdateLyrics({ onChangeValues, song }) {
   return (
     <>
       <PageTitle>Lyrics</PageTitle>
@@ -28,7 +25,11 @@ export default function UpdateLyrics({ onChangeLyrics }) {
           <CollectionLink>ur awesome collection</CollectionLink>
         </Link>
       </LinkContainer>
-      <UpdateForm onChangeLyrics={changeLyrics} />
+      <UpdateForm
+        onChangeValues={onChangeValues}
+        title={song.title}
+        lyrics={song.lyrics}
+      />
     </>
   );
 }
@@ -36,6 +37,7 @@ export default function UpdateLyrics({ onChangeLyrics }) {
 const PageTitle = styled.h1`
   text-align: center;
   font-size: 1.6rem;
+  margin-bottom: 1.5rem;
 `;
 
 const LinkContainer = styled.div`
