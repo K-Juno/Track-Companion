@@ -64,8 +64,8 @@ export default function Form({ onAddLyrics, id }) {
             pattern="[A-Za-z0-9._$%/+-='!]+[A-Za-z0-9._$%/+-='! ]{1,}"
           />
         </div>
-        <div>
-          <label htmlFor="lyrics" />
+        <TextContainer>
+          <label htmlFor="lyrics">Songtext : </label>
           <LyricsField
             type="text"
             placeholder="Keep your ideas rolling!"
@@ -74,7 +74,7 @@ export default function Form({ onAddLyrics, id }) {
             rows="15"
             maxLength="1000"
           />
-        </div>
+        </TextContainer>
         <Button>Let&apos;s go ✓</Button>
       </InputForm>
     </>
@@ -95,6 +95,12 @@ const InputForm = styled.form`
 const TitleField = styled.input`
   margin-top: 1rem;
   width: 9rem;
+`;
+
+const TextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
 `;
 
 const LyricsField = styled.textarea`
