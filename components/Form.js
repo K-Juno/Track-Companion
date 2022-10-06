@@ -55,7 +55,7 @@ export default function Form({ onAddLyrics, id }) {
       <InputForm onSubmit={handleSubmit}>
         Start creating your first idea :
         <div>
-          <label for="title">Title : </label>
+          <label htmlFor="title">Title : </label>
           <TitleField
             type="text"
             id="title"
@@ -65,6 +65,7 @@ export default function Form({ onAddLyrics, id }) {
           />
         </div>
         <div>
+          <label htmlFor="lyrics" />
           <LyricsField
             type="text"
             placeholder="Keep your ideas rolling!"

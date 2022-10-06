@@ -21,13 +21,13 @@ function MyApp({ Component, pageProps }) {
     <>
       <GlobalStyle />
       <Layout>
+        <ToastContainer />
         <Component
           {...pageProps}
           lyricsList={lyricsList}
           onAddLyrics={handleAddLyrics}
           onChangeValues={handleChangeValues}
         />
-        <ToastContainer />
       </Layout>
     </>
   );
