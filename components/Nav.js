@@ -14,6 +14,11 @@ export default function Nav() {
           <NavTag>Lyrics</NavTag>
         </Link>
       </nav>
+      <nav>
+        <Link href="/recordings">
+          <NavTag>Recordings</NavTag>
+        </Link>
+      </nav>
     </NavContainer>
   );
 }
