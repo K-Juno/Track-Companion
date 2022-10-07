@@ -45,8 +45,6 @@ export default function Form({ onAddLyrics, id }) {
       return false;
     }
 
-    form.reset();
-    form.title.focus();
     router.push('/lyrics/collection');
   }
 
@@ -75,7 +73,7 @@ export default function Form({ onAddLyrics, id }) {
             maxLength="1000"
           />
         </TextContainer>
-        <Button>Let&apos;s go ✓</Button>
+        <Button>LET&apos;S GO ✓</Button>
       </InputForm>
     </>
   );
@@ -90,6 +88,8 @@ const InputForm = styled.form`
   border-radius: 0.3rem;
   padding: 1.3rem;
   margin: 2rem;
+  background-image: linear-gradient(-20deg, #194563 0%, #312f5d 100%);
+  color: #dfdfdf;
 `;
 
 const TitleField = styled.input`
@@ -112,13 +112,12 @@ const LyricsField = styled.textarea`
 `;
 
 const Button = styled.button`
-  width: 5rem;
+  width: 6rem;
   height: 2.2rem;
   border-radius: 0.9rem;
   padding: 0.3rem;
-  background-color: #2f3061;
-  font-family: 'Urbanist', sans-serif;
+  background-color: #bcebff;
   font-size: 0.9rem;
-  color: #dfdfdf;
+  color: #343434;
   cursor: pointer;
 `;

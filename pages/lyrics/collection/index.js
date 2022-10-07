@@ -4,7 +4,13 @@ import getAllLyrics from '../../../services/lyricsService';
 import Image from 'next/image';
 import trashIcon from '../../../public/trash-icon.png';
 import { useState } from 'react';
-import BackLink from '../../../components/BackLink';
+import {
+  PageTitle,
+  SubTitleContainer,
+  SubTitle,
+  BackLink,
+  LinkContainer,
+} from '../../../components/Styling';
 
 export async function getServerSideProps() {
   const lyrics = await getAllLyrics();
@@ -33,11 +39,9 @@ export default function Collection({ lyrics }) {
   return (
     <>
       <PageTitle>Lyrics</PageTitle>
-
-      <TitleContainer>
+      <SubTitleContainer>
         <SubTitle>ur awesome collection</SubTitle>
-      </TitleContainer>
-
+      </SubTitleContainer>
       <ListContainer>
         {lyricsList.map((song) => (
           <>
@@ -52,7 +56,6 @@ export default function Collection({ lyrics }) {
           </>
         ))}
       </ListContainer>
-
       <LinkContainer>
         <Link href="/lyrics">
           <BackLink>go back</BackLink>
@@ -61,27 +64,6 @@ export default function Collection({ lyrics }) {
     </>
   );
 }
-
-const PageTitle = styled.h1`
-  text-align: center;
-  font-size: 1.6rem;
-`;
-
-const TitleContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 0 3rem 0;
-`;
-
-const SubTitle = styled.h3`
-  text-align: center;
-  border: 0.1rem solid #7e8e96;
-  border-radius: 0.2rem;
-  padding: 0.3rem;
-  width: fit-content;
-  margin: 0;
-`;
 
 const ListContainer = styled.ul`
   list-style: none;
@@ -104,14 +86,8 @@ const LyricsTitle = styled.a`
   width: fit-content;
   border-radius: 0.2rem;
   color: #dfdfdf;
-  background-color: #313c4c;
+  background-color: #1b4362;
   cursor: pointer;
-`;
-
-const LinkContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `;
 
 const RemoveButton = styled.button`

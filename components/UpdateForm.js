@@ -45,8 +45,6 @@ export default function UpdateForm({ onChangeValues, title, lyrics }) {
       return false;
     }
 
-    form.reset();
-    form.title.focus();
     router.push('/lyrics/collection');
   }
 
@@ -65,7 +63,8 @@ export default function UpdateForm({ onChangeValues, title, lyrics }) {
             defaultValue={title}
           />
         </div>
-        <div>
+        <TextContainer>
+          <label htmlFor="lyrics">Songtext : </label>
           <LyricsField
             type="text"
             placeholder="Keep your ideas rolling!"
@@ -75,8 +74,8 @@ export default function UpdateForm({ onChangeValues, title, lyrics }) {
             maxLength="1000"
             defaultValue={lyrics}
           />
-        </div>
-        <Button>Save ✓</Button>
+        </TextContainer>
+        <Button>SAVE ✓</Button>
       </InputForm>
     </>
   );
@@ -91,11 +90,19 @@ const InputForm = styled.form`
   border-radius: 0.3rem;
   padding: 1.3rem;
   margin: 2rem;
+  background-image: linear-gradient(-20deg, #194563 0%, #312f5d 100%);
+  color: #dfdfdf;
 `;
 
 const TitleField = styled.input`
   margin-top: 1rem;
   width: 9rem;
+`;
+
+const TextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
 `;
 
 const LyricsField = styled.textarea`
@@ -111,9 +118,9 @@ const Button = styled.button`
   height: 2.2rem;
   border-radius: 0.9rem;
   padding: 0.3rem;
-  background-color: #2f3061;
+  background-color: #bcebff;
   font-family: 'Urbanist', sans-serif;
   font-size: 0.9rem;
-  color: #dfdfdf;
+  color: #343434;
   cursor: pointer;
 `;

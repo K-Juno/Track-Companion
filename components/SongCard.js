@@ -14,7 +14,7 @@ const LyricsContainer = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-color: #e9eefa;
+  background-image: linear-gradient(-20deg, #e1eeff 0%, #f4ffff 100%);
   margin: 2rem;
   border-radius: 1rem;
 `;
@@ -25,7 +25,7 @@ const NewTitle = styled.h4`
   margin: 1.5rem 0 0 0;
   border-radius: 0.2rem;
   color: #dfdfdf;
-  background-color: #313c4c;
+  background-color: #1b4362;
 `;
 
 const NewText = styled.p`
@@ -39,5 +39,5 @@ const NewText = styled.p`
   border-radius: 0.4rem;
   word-break: break-word;
   color: #dfdfdf;
-  background-color: #313c4c;
+  background-color: #1b4362;
 `;

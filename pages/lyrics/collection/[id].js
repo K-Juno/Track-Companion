@@ -2,7 +2,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import SongCard from '../../../components/SongCard';
 import { getLyricsById } from '../../../services/lyricsService';
-import BackLink from '../../../components/BackLink';
+import { BackLink, LinkContainer } from '../../../components/Styling';
 import Image from 'next/image';
 import pencilIcon from '../../../public/pencil-icon.png';
 import { useRouter } from 'next/router';
@@ -39,12 +39,6 @@ export default function SongLyrics({ song }) {
     </>
   );
 }
-
-const LinkContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
 
 const EditButton = styled.button`
   border: 0.1rem solid #7e8e96;
