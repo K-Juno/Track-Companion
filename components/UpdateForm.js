@@ -26,7 +26,7 @@ export default function UpdateForm({ onChangeValues, title, lyrics }) {
     onChangeValues(updatedSong);
 
     if (updatedTitle.length < 1) {
-      toast('u can find a longer title', {
+      toast('Your Title is empty!', {
         hideProgressBar: true,
         autoClose: 2000,
         type: 'info',
@@ -35,8 +35,8 @@ export default function UpdateForm({ onChangeValues, title, lyrics }) {
       return false;
     }
 
-    if (updatedLyrics.length < 3) {
-      toast('u can find more words than that', {
+    if (updatedLyrics.length < 1) {
+      toast('Your Songtext is empty!', {
         hideProgressBar: true,
         autoClose: 2000,
         type: 'info',
