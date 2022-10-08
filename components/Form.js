@@ -26,27 +26,32 @@ export default function Form({ onAddLyrics, id }) {
     onAddLyrics(newLyrics);
 
     if (title.length < 1) {
-      toast('u can find a longer title', {
+      toast('Your Title is empty!', {
         hideProgressBar: true,
-        autoClose: 2000,
+        autoClose: 1000,
         type: 'info',
         position: 'top-center',
       });
       return false;
     }
 
-    if (lyrics.length < 3) {
-      toast('u can find more words than that', {
+    if (lyrics.length < 1) {
+      toast('Your Songtext is empty!', {
         hideProgressBar: true,
-        autoClose: 2000,
+        autoClose: 1000,
         type: 'info',
         position: 'top-center',
       });
       return false;
+    } else {
+      toast('Good job!', {
+        hideProgressBar: true,
+        autoClose: 500,
+        type: 'success',
+        position: 'top-center',
+      });
     }
 
-    form.reset();
-    form.title.focus();
     router.push('/lyrics/collection');
   }
 
@@ -75,7 +80,7 @@ export default function Form({ onAddLyrics, id }) {
             maxLength="1000"
           />
         </TextContainer>
-        <Button>Let&apos;s go ✓</Button>
+        <Button>SAVE ✓</Button>
       </InputForm>
     </>
   );
@@ -86,10 +91,11 @@ const InputForm = styled.form`
   flex-direction: column;
   align-items: center;
   gap: 0.9rem;
-  border: 0.1rem solid #343434;
   border-radius: 0.3rem;
   padding: 1.3rem;
   margin: 2rem;
+  background-image: linear-gradient(-20deg, #194563 0%, #312f5d 100%);
+  color: #dfdfdf;
 `;
 
 const TitleField = styled.input`
@@ -106,8 +112,6 @@ const TextContainer = styled.div`
 const LyricsField = styled.textarea`
   width: 15rem;
   height: 18rem;
-  box-shadow: 10px 10px 12px rgba(0, 0, 0, 0.1);
-  border: 0.1rem solid #343434;
   border-radius: 0.2rem;
 `;
 
@@ -116,9 +120,18 @@ const Button = styled.button`
   height: 2.2rem;
   border-radius: 0.9rem;
   padding: 0.3rem;
-  background-color: #2f3061;
-  font-family: 'Urbanist', sans-serif;
+  background-color: #81d8c7;
   font-size: 0.9rem;
-  color: #dfdfdf;
+  color: #343434;
   cursor: pointer;
+  box-shadow: 4px 4px 1px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    background-color: #b1ebe1;
+    transform: translateY(2px);
+  }
+
+  &:active {
+    box-shadow: 0 5px #666;
+  }
 `;
