@@ -43,6 +43,11 @@ export const CollectionLink = styled.a`
   color: #dfdfdf;
   margin-bottom: 0;
   cursor: pointer;
+  box-shadow: 4px 4px 1px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    background-color: #6791ab;
+  }
 `;
 
 export const BackLink = styled.a`
@@ -53,4 +58,9 @@ export const BackLink = styled.a`
   color: #dfdfdf;
   margin-bottom: 2rem;
   cursor: pointer;
+  box-shadow: 4px 4px 1px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    background-color: #6791ab;
+  }
 `;

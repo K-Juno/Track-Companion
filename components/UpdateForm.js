@@ -53,7 +53,7 @@ export default function UpdateForm({ onChangeValues, title, lyrics }) {
       <InputForm onSubmit={handleSubmit}>
         Update your creation :
         <div>
-          <label for="title">Title : </label>
+          <label htmlFor="title">Title : </label>
           <TitleField
             type="text"
             id="title"
@@ -86,7 +86,6 @@ const InputForm = styled.form`
   flex-direction: column;
   align-items: center;
   gap: 0.9rem;
-  border: 0.1rem solid #343434;
   border-radius: 0.3rem;
   padding: 1.3rem;
   margin: 2rem;
@@ -108,8 +107,6 @@ const TextContainer = styled.div`
 const LyricsField = styled.textarea`
   width: 15rem;
   height: 18rem;
-  box-shadow: 10px 10px 12px rgba(0, 0, 0, 0.1);
-  border: 0.1rem solid #343434;
   border-radius: 0.2rem;
 `;
 
@@ -118,9 +115,18 @@ const Button = styled.button`
   height: 2.2rem;
   border-radius: 0.9rem;
   padding: 0.3rem;
-  background-color: #bcebff;
-  font-family: 'Urbanist', sans-serif;
+  background-color: #81d8c7;
   font-size: 0.9rem;
   color: #343434;
   cursor: pointer;
+  box-shadow: 4px 4px 1px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    background-color: #b1ebe1;
+    transform: translateY(2px);
+  }
+
+  &:active {
+    box-shadow: 0 5px #666;
+  }
 `;

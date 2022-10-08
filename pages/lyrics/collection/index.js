@@ -88,6 +88,10 @@ const LyricsTitle = styled.a`
   color: #dfdfdf;
   background-color: #1b4362;
   cursor: pointer;
+
+  &:hover {
+    background-color: #436a89;
+  }
 `;
 
 const RemoveButton = styled.button`
@@ -99,6 +103,7 @@ const RemoveButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    border: 0.1rem dotted #313c4c;
+    background-color: #fdf7ff;
+    border: 1px dotted #d9d5dc;
   }
 `;

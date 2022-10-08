@@ -41,20 +41,18 @@ export default function SongLyrics({ song }) {
 }
 
 const EditButton = styled.button`
-  border: 0.1rem solid #7e8e96;
+  border: 0;
   background-color: transparent;
-  border-radius: 11px;
+  border-radius: 15px;
   padding: 3px;
   width: 2.2rem;
-  color: white;
   cursor: pointer;
   position: fixed;
   top: 6.4rem;
   right: 3rem;
 
   &:hover {
-    border: 0.1rem dotted #313c4c;
-    border-radius: 15px;
-    background-color: #ffffff;
+    background-color: #daecfb;
+    border: 1px dotted #c6d5e2;
   }
 `;

@@ -17,6 +17,7 @@ const LyricsContainer = styled.div`
   background-image: linear-gradient(-20deg, #e1eeff 0%, #f4ffff 100%);
   margin: 2rem;
   border-radius: 1rem;
+  box-shadow: 10px 10px 12px rgba(0, 0, 0, 0.1);
 `;
 
 const NewTitle = styled.h4`
