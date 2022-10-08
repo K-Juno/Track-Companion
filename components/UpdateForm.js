@@ -25,24 +25,31 @@ export default function UpdateForm({ onChangeValues, title, lyrics }) {
 
     onChangeValues(updatedSong);
 
-    if (updatedTitle.length < 1) {
+    if (title.length < 1) {
       toast('Your Title is empty!', {
         hideProgressBar: true,
-        autoClose: 2000,
+        autoClose: 1000,
         type: 'info',
         position: 'top-center',
       });
       return false;
     }
 
-    if (updatedLyrics.length < 1) {
+    if (lyrics.length < 1) {
       toast('Your Songtext is empty!', {
         hideProgressBar: true,
-        autoClose: 2000,
+        autoClose: 1000,
         type: 'info',
         position: 'top-center',
       });
       return false;
+    } else {
+      toast('Good job!', {
+        hideProgressBar: true,
+        autoClose: 500,
+        type: 'success',
+        position: 'top-center',
+      });
     }
 
     router.push('/lyrics/collection');

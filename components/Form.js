@@ -28,7 +28,7 @@ export default function Form({ onAddLyrics, id }) {
     if (title.length < 1) {
       toast('Your Title is empty!', {
         hideProgressBar: true,
-        autoClose: 2000,
+        autoClose: 1000,
         type: 'info',
         position: 'top-center',
       });
@@ -38,11 +38,18 @@ export default function Form({ onAddLyrics, id }) {
     if (lyrics.length < 1) {
       toast('Your Songtext is empty!', {
         hideProgressBar: true,
-        autoClose: 2000,
+        autoClose: 1000,
         type: 'info',
         position: 'top-center',
       });
       return false;
+    } else {
+      toast('Good job!', {
+        hideProgressBar: true,
+        autoClose: 500,
+        type: 'success',
+        position: 'top-center',
+      });
     }
 
     router.push('/lyrics/collection');
