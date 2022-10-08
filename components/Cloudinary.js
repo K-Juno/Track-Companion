@@ -21,11 +21,11 @@ export default function CloudinaryUpload() {
             process.env.NEXT_PUBLIC_UPLOAD_PRESET
           );
           const response = await fetch(
-            `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDNAME}/upload`
-            // {
-            //   method: 'POST',
-            //   body: formData,
-            // }
+            `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDNAME}/upload`,
+            {
+              method: 'POST',
+              body: formData,
+            }
           );
           const json = await response.json();
           console.log(json);
@@ -38,6 +38,7 @@ export default function CloudinaryUpload() {
               width: json.width,
             },
           ]);
+          router.push('/recordings/collection');
         }}
       >
         <label htmlFor="file">Select your audio file here : </label>
