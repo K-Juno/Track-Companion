@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 export default function CloudinaryUpload() {
+  const router = useRouter();
+
   const [audio, setAudio] = useState(null);
   const [audioValue, setAudioValue] = useState('');
   const [audioFiles, setAudioFiles] = useState([]);
@@ -18,18 +21,18 @@ export default function CloudinaryUpload() {
             process.env.NEXT_PUBLIC_UPLOAD_PRESET
           );
           const response = await fetch(
-            `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDNAME}/upload`,
-            {
-              method: 'POST',
-              body: formData,
-            }
+            `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDNAME}/upload`
+            // {
+            //   method: 'POST',
+            //   body: formData,
+            // }
           );
           const json = await response.json();
           console.log(json);
           setAudioFiles([
             ...audioFiles,
             {
-              id: json.asset._id,
+              id: json.asset_id,
               src: json.secure_url,
               height: json.height,
               width: json.width,
@@ -49,24 +52,8 @@ export default function CloudinaryUpload() {
             setAudio(event.target.files[0]);
           }}
         />
-        {/* {audio && <ImagePreview file={audio} />} */}
         <button type="submit">Upload audio file</button>
       </UploadForm>
-
-      <ul>
-        {audioFiles.map((audio) => {
-          return (
-            <li key={audio.id}>
-              {/* <Image
-                src={audio.src}
-                height={audio.height}
-                width={audio.width}
-                alt=""
-              /> */}
-            </li>
-          );
-        })}
-      </ul>
     </>
   );
 }
