@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import CloudinaryUpload from '../../components/Cloudinary';
 import {
   PageTitle,
   CollectionLink,
@@ -11,10 +12,11 @@ export default function Recordings({}) {
       <PageTitle>Recordings</PageTitle>
       <CollectionLinkContainer>
         <span>Go to →</span>
-        <Link href="/cloudinary/collection">
+        <Link href="/recordings/collection">
           <CollectionLink>ur awesome collection</CollectionLink>
         </Link>
       </CollectionLinkContainer>
+      <CloudinaryUpload />
     </>
   );
 }
