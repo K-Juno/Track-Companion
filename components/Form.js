@@ -26,7 +26,7 @@ export default function Form({ onAddLyrics, id }) {
     onAddLyrics(newLyrics);
 
     if (title.length < 1) {
-      toast('u can find a longer title', {
+      toast('Your Title is empty!', {
         hideProgressBar: true,
         autoClose: 2000,
         type: 'info',
@@ -35,8 +35,8 @@ export default function Form({ onAddLyrics, id }) {
       return false;
     }
 
-    if (lyrics.length < 3) {
-      toast('u can find more words than that', {
+    if (lyrics.length < 1) {
+      toast('Your Songtext is empty!', {
         hideProgressBar: true,
         autoClose: 2000,
         type: 'info',
