@@ -13,7 +13,7 @@ export default function Collection() {
     <>
       <PageTitle>Recordings</PageTitle>
       <SubTitleContainer>
-        <SubTitle>ur awesome collection</SubTitle>
+        <SubTitle>Your awesome collection</SubTitle>
       </SubTitleContainer>
       <ListContainer></ListContainer>
       <LinkContainer>

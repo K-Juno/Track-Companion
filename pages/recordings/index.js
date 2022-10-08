@@ -13,7 +13,7 @@ export default function Recordings({}) {
       <CollectionLinkContainer>
         <span>Go to →</span>
         <Link href="/recordings/collection">
-          <CollectionLink>ur awesome collection</CollectionLink>
+          <CollectionLink>Your awesome collection</CollectionLink>
         </Link>
       </CollectionLinkContainer>
       <CloudinaryUpload />

@@ -13,7 +13,7 @@ export default function Lyrics({ onAddLyrics }) {
       <CollectionLinkContainer>
         <span>Go to →</span>
         <Link href="/lyrics/collection">
-          <CollectionLink>ur awesome collection</CollectionLink>
+          <CollectionLink>Your awesome collection</CollectionLink>
         </Link>
       </CollectionLinkContainer>
       <Form onAddLyrics={onAddLyrics} />

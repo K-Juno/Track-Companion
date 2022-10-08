@@ -20,12 +20,14 @@ export const SubTitle = styled.h3`
   padding: 0.3rem;
   width: fit-content;
   margin: 0;
+  background-image: linear-gradient(-20deg, #f7f4ff 0%, #f3fffc 100%);
 `;
 
 export const LinkContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: right;
+  margin-right: 2rem;
 `;
 
 export const CollectionLinkContainer = styled.div`

@@ -40,7 +40,7 @@ export default function Collection({ lyrics }) {
     <>
       <PageTitle>Lyrics</PageTitle>
       <SubTitleContainer>
-        <SubTitle>ur awesome collection</SubTitle>
+        <SubTitle>Your awesome collection</SubTitle>
       </SubTitleContainer>
       <ListContainer>
         {lyricsList.map((song) => (
