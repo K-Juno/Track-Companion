@@ -85,9 +85,6 @@ export default function CloudinaryUpload() {
               <Video controls autoplay name="media">
                 <source src={audio.src} type="audio/mpeg" />
               </Video>
-              <RemoveButton onClick={() => removeAudio(audio.id)}>
-                <Image alt="trash icon" layout="responsive" src={trashIcon} />
-              </RemoveButton>
             </li>
           );
         })}
@@ -128,18 +125,4 @@ const ListContainer = styled.ul`
 const Video = styled.video`
   height: 55px;
   width: 300px;
-`;
-
-const RemoveButton = styled.button`
-  border: 0;
-  background-color: transparent;
-  border-radius: 15px;
-  padding: 5px;
-  width: 2rem;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #fdf7ff;
-    border: 1px dotted #d9d5dc;
-  }
 `;
