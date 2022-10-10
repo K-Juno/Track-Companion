@@ -1,13 +1,21 @@
 import styled from 'styled-components';
 import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { toast } from 'react-toastify';
+import Image from 'next/image';
+import trashIcon from '../public/trash-icon.png';
 
 export default function CloudinaryUpload() {
-  const router = useRouter();
-
   const [audio, setAudio] = useState(null);
   const [audioValue, setAudioValue] = useState('');
   const [audioFiles, setAudioFiles] = useState([]);
+
+  async function removeAudio(id) {
+    setAudioFiles(
+      audioFiles.filter((audio) => {
+        return audio.id !== id;
+      })
+    );
+  }
 
   return (
     <>
@@ -29,16 +37,31 @@ export default function CloudinaryUpload() {
           );
           const json = await response.json();
           console.log(json);
+
+          if (audioValue === '') {
+            toast('Your haven`t selected a file!', {
+              hideProgressBar: true,
+              autoClose: 1000,
+              type: 'info',
+              position: 'top-center',
+            });
+            return false;
+          } else {
+            toast('Good job!', {
+              hideProgressBar: true,
+              autoClose: 500,
+              type: 'success',
+              position: 'top-center',
+            });
+          }
+
           setAudioFiles([
             ...audioFiles,
             {
               id: json.asset_id,
               src: json.secure_url,
-              height: json.height,
-              width: json.width,
             },
           ]);
-          router.push('/recordings/collection');
         }}
       >
         <label htmlFor="file">Select your audio file here : </label>
@@ -55,6 +78,20 @@ export default function CloudinaryUpload() {
         />
         <button type="submit">Upload audio file</button>
       </UploadForm>
+      <ListContainer>
+        {audioFiles.map((audio) => {
+          return (
+            <li key={audio.id}>
+              <Video controls autoplay name="media">
+                <source src={audio.src} type="audio/mpeg" />
+              </Video>
+              <RemoveButton onClick={() => removeAudio(audio.id)}>
+                <Image alt="trash icon" layout="responsive" src={trashIcon} />
+              </RemoveButton>
+            </li>
+          );
+        })}
+      </ListContainer>
     </>
   );
 }
@@ -75,4 +112,34 @@ const UploadField = styled.input`
   background: white;
   margin-top: 1rem;
   border-radius: 0.2rem;
+`;
+
+const ListContainer = styled.ul`
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 0;
+`;
+
+const Video = styled.video`
+  height: 55px;
+  width: 300px;
+`;
+
+const RemoveButton = styled.button`
+  border: 0;
+  background-color: transparent;
+  border-radius: 15px;
+  padding: 5px;
+  width: 2rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #fdf7ff;
+    border: 1px dotted #d9d5dc;
+  }
 `;
