@@ -46,7 +46,7 @@ export default function Collection({ lyrics }) {
         {lyricsList.map((song) => (
           <>
             <ListItem key={song.id}>
-              <Link href={`/lyrics/collection/${song.id}`}>
+              <Link href={`/lyrics/collection/${song.id}`} passHref>
                 <LyricsTitle>&quot;{song.title}&quot;</LyricsTitle>
               </Link>
               <RemoveButton onClick={() => removeLyrics(song.id)}>
@@ -82,6 +82,7 @@ const ListItem = styled.li`
 `;
 
 const LyricsTitle = styled.a`
+  text-decoration: none;
   padding: 0.3rem;
   width: fit-content;
   border-radius: 0.2rem;
