@@ -12,7 +12,7 @@ import {
   LinkContainer,
 } from '../../../components/Styling';
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const lyrics = await getAllLyrics();
 
   return {
