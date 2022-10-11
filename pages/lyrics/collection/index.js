@@ -9,10 +9,12 @@ import {
   SubTitleContainer,
   SubTitle,
   BackLink,
+  ListContainer,
   LinkContainer,
+  RemoveButton,
 } from '../../../components/Styling';
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const lyrics = await getAllLyrics();
 
   return {
@@ -65,16 +67,6 @@ export default function Collection({ lyrics }) {
   );
 }
 
-const ListContainer = styled.ul`
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  margin-bottom: 2rem;
-`;
-
 const ListItem = styled.li`
   display: flex;
   align-items: center;
@@ -92,19 +84,5 @@ const LyricsTitle = styled.a`
 
   &:hover {
     background-color: #436a89;
-  }
-`;
-
-const RemoveButton = styled.button`
-  border: 0;
-  background-color: transparent;
-  border-radius: 15px;
-  padding: 5px;
-  width: 2rem;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #fdf7ff;
-    border: 1px dotted #d9d5dc;
   }
 `;

@@ -15,7 +15,7 @@ const LyricsContainer = styled.div`
   align-items: center;
   text-align: center;
   background-image: linear-gradient(-20deg, #e1eeff 0%, #f4ffff 100%);
-  margin: 3rem;
+  margin: 3rem 3rem 1rem 3rem;
   border-radius: 1rem;
   box-shadow: 10px 10px 12px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
