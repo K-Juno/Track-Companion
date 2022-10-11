@@ -28,15 +28,6 @@ export default function CloudinaryUpload() {
             'upload_preset',
             process.env.NEXT_PUBLIC_UPLOAD_PRESET
           );
-          const response = await fetch(
-            `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDNAME}/upload`,
-            {
-              method: 'POST',
-              body: formData,
-            }
-          );
-          const json = await response.json();
-          console.log(json);
 
           if (audioValue === '') {
             toast('Your haven`t selected a file!', {
@@ -54,6 +45,16 @@ export default function CloudinaryUpload() {
               position: 'top-center',
             });
           }
+
+          const response = await fetch(
+            `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDNAME}/upload`,
+            {
+              method: 'POST',
+              body: formData,
+            }
+          );
+          const json = await response.json();
+          console.log(json);
 
           setAudioFiles([
             ...audioFiles,

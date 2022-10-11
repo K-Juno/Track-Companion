@@ -17,14 +17,6 @@ export default function UpdateForm({ onChangeValues, title, lyrics }) {
       lyrics: updatedLyrics,
     };
 
-    await fetch(`/api/lyrics/${id}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(updatedSong),
-    });
-
-    onChangeValues(updatedSong);
-
     if (title.length < 1) {
       toast('Your Title is empty!', {
         hideProgressBar: true,
@@ -51,6 +43,14 @@ export default function UpdateForm({ onChangeValues, title, lyrics }) {
         position: 'top-center',
       });
     }
+
+    await fetch(`/api/lyrics/${id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(updatedSong),
+    });
+
+    onChangeValues(updatedSong);
 
     router.push('/lyrics/collection');
   }

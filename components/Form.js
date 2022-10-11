@@ -17,14 +17,6 @@ export default function Form({ onAddLyrics, id }) {
       lyrics: lyrics,
     };
 
-    await fetch('/api/lyrics/create', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(newLyrics),
-    });
-
-    onAddLyrics(newLyrics);
-
     if (title.length < 1) {
       toast('Your Title is empty!', {
         hideProgressBar: true,
@@ -51,6 +43,14 @@ export default function Form({ onAddLyrics, id }) {
         position: 'top-center',
       });
     }
+
+    await fetch('/api/lyrics/create', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newLyrics),
+    });
+
+    onAddLyrics(newLyrics);
 
     router.push('/lyrics/collection');
   }
