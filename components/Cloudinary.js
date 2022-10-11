@@ -1,21 +1,11 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-import Image from 'next/image';
-import trashIcon from '../public/trash-icon.png';
 
-export default function CloudinaryUpload() {
+export default function CloudinaryUpload({ onAddAudio }) {
   const [audio, setAudio] = useState(null);
   const [audioValue, setAudioValue] = useState('');
   const [audioFiles, setAudioFiles] = useState([]);
-
-  async function removeAudio(id) {
-    setAudioFiles(
-      audioFiles.filter((audio) => {
-        return audio.id !== id;
-      })
-    );
-  }
 
   return (
     <>
@@ -56,13 +46,25 @@ export default function CloudinaryUpload() {
           const json = await response.json();
           console.log(json);
 
+          const newAudio = {
+            id: json.asset_id,
+            src: json.secure_url,
+          };
+
           setAudioFiles([
             ...audioFiles,
             {
-              id: json.asset_id,
-              src: json.secure_url,
+              newAudio,
             },
           ]);
+
+          await fetch('/api/audioFiles/create', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newAudio),
+          });
+
+          onAddAudio(newAudio);
         }}
       >
         <label htmlFor="file">Select your audio file here : </label>
@@ -79,17 +81,6 @@ export default function CloudinaryUpload() {
         />
         <button type="submit">Upload audio file</button>
       </UploadForm>
-      <ListContainer>
-        {audioFiles.map((audio) => {
-          return (
-            <li key={audio.id}>
-              <Video controls autoplay name="media">
-                <source src={audio.src} type="audio/mpeg" />
-              </Video>
-            </li>
-          );
-        })}
-      </ListContainer>
     </>
   );
 }
@@ -110,20 +101,4 @@ const UploadField = styled.input`
   background: white;
   margin-top: 1rem;
   border-radius: 0.2rem;
-`;
-
-const ListContainer = styled.ul`
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  margin-bottom: 2rem;
-  margin-top: 0;
-`;
-
-const Video = styled.video`
-  height: 55px;
-  width: 300px;
 `;
