@@ -83,9 +83,9 @@ const ListItem = styled.li`
 
 const LyricsTitle = styled.a`
   text-decoration: none;
-  padding: 0.3rem;
+  padding: 0.6rem;
   width: fit-content;
-  border-radius: 0.2rem;
+  border-radius: 0.3rem;
   color: #dfdfdf;
   background-color: #1b4362;
   cursor: pointer;

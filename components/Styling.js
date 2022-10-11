@@ -17,8 +17,7 @@ export const SubTitle = styled.h3`
   text-align: center;
   border: 0.1rem solid #7e8e96;
   border-radius: 0.2rem;
-  padding: 0.3rem;
-  width: fit-content;
+  padding: 0.5rem;
   margin: 0;
   background-image: linear-gradient(-20deg, #f7f4ff 0%, #f3fffc 100%);
 `;
@@ -34,13 +33,13 @@ export const CollectionLinkContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: right;
-  margin-right: 2rem;
+  margin-right: 1.8rem;
 `;
 
 export const CollectionLink = styled.a`
   text-decoration: none;
   border-radius: 0.2rem;
-  padding: 0.3rem;
+  padding: 0.5rem;
   background-color: #507d96;
   color: #dfdfdf;
   margin-bottom: 0;
@@ -54,10 +53,10 @@ export const CollectionLink = styled.a`
 export const BackLink = styled.a`
   text-decoration: none;
   border-radius: 0.2rem;
-  padding: 0.3rem;
+  padding: 0.5rem;
   background-color: #507d96;
   color: #dfdfdf;
-  margin-bottom: 2rem;
+  margin-bottom: 1.8rem;
   cursor: pointer;
 
   &:hover {

@@ -93,7 +93,7 @@ const InputForm = styled.form`
   gap: 0.9rem;
   border-radius: 0.3rem;
   padding: 1.3rem;
-  margin: 2rem;
+  margin: 1.8rem;
   background-image: linear-gradient(-20deg, #194563 0%, #312f5d 100%);
   color: #dfdfdf;
 `;
@@ -111,14 +111,14 @@ const TextContainer = styled.div`
 
 const LyricsField = styled.textarea`
   width: 15rem;
-  height: 18rem;
+  height: 15rem;
   border-radius: 0.2rem;
 `;
 
 const Button = styled.button`
-  width: 5rem;
-  height: 2.2rem;
-  border-radius: 0.9rem;
+  width: 5.3rem;
+  height: 2.5rem;
+  border-radius: 1.2rem;
   padding: 0.3rem;
   background-color: #81d8c7;
   font-size: 0.9rem;

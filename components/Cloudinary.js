@@ -100,7 +100,7 @@ const UploadForm = styled.form`
   gap: 0.9rem;
   border-radius: 0.3rem;
   padding: 1.3rem;
-  margin: 2rem;
+  margin: 1.8rem;
   background-image: linear-gradient(-20deg, #194563 0%, #312f5d 100%);
   color: #dfdfdf;
 `;
