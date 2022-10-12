@@ -19,7 +19,7 @@ export default function CloudinaryUpload({ onAddAudio }) {
           );
 
           if (audioValue === '') {
-            toast('Your haven`t selected a file!', {
+            toast('You haven`t selected a file!', {
               hideProgressBar: true,
               autoClose: 1000,
               type: 'info',
