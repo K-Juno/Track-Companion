@@ -25,7 +25,7 @@ export default function UpdateLyrics({ onChangeValues, song }) {
       <CollectionLinkContainer>
         <span>Go to →</span>
         <Link href="/lyrics/collection">
-          <CollectionLink>ur awesome collection</CollectionLink>
+          <CollectionLink>Your awesome collection</CollectionLink>
         </Link>
       </CollectionLinkContainer>
       <UpdateForm

@@ -24,17 +24,16 @@ export default function Nav() {
 }
 
 const NavContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-items: center;
+  display: flex;
+  justify-content: space-evenly;
   background-image: linear-gradient(-20deg, #312f5d 0%, #194563 100%);
-  padding: 1.1rem;
+  padding: 1.3rem;
 `;
 
 const NavTag = styled.a`
   text-decoration: none;
   border-radius: 0.2rem;
-  padding: 0.3rem;
+  padding: 0.5rem;
   background-color: #507d96;
   color: #dfdfdf;
   cursor: pointer;

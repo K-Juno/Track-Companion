@@ -47,9 +47,9 @@ const EditButton = styled.button`
   padding: 3px;
   width: 2.2rem;
   cursor: pointer;
-  position: fixed;
-  top: 6.4rem;
-  right: 3rem;
+  position: absolute;
+  top: 7.3rem;
+  right: 3.5rem;
 
   &:hover {
     background-color: #daecfb;

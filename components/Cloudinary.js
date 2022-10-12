@@ -1,13 +1,10 @@
 import styled from 'styled-components';
 import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { toast } from 'react-toastify';
 
-export default function CloudinaryUpload() {
-  const router = useRouter();
-
+export default function CloudinaryUpload({ onAddAudio }) {
   const [audio, setAudio] = useState(null);
   const [audioValue, setAudioValue] = useState('');
-  const [audioFiles, setAudioFiles] = useState([]);
 
   return (
     <>
@@ -20,24 +17,47 @@ export default function CloudinaryUpload() {
             'upload_preset',
             process.env.NEXT_PUBLIC_UPLOAD_PRESET
           );
+
+          if (audioValue === '') {
+            toast('You haven`t selected a file!', {
+              hideProgressBar: true,
+              autoClose: 1000,
+              type: 'info',
+              position: 'top-center',
+            });
+            return false;
+          } else {
+            toast('Good job!', {
+              hideProgressBar: true,
+              autoClose: 500,
+              type: 'success',
+              position: 'top-center',
+            });
+          }
+
           const response = await fetch(
-            `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDNAME}/upload`
-            // {
-            //   method: 'POST',
-            //   body: formData,
-            // }
+            `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDNAME}/upload`,
+            {
+              method: 'POST',
+              body: formData,
+            }
           );
           const json = await response.json();
           console.log(json);
-          setAudioFiles([
-            ...audioFiles,
-            {
-              id: json.asset_id,
-              src: json.secure_url,
-              height: json.height,
-              width: json.width,
-            },
-          ]);
+
+          const newAudio = {
+            id: json.asset_id,
+            src: json.secure_url,
+          };
+
+          const response_ = await fetch('/api/audioFiles/create', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newAudio),
+          });
+          const fileInDB = await response_.json();
+
+          onAddAudio(fileInDB);
         }}
       >
         <label htmlFor="file">Select your audio file here : </label>
@@ -65,7 +85,7 @@ const UploadForm = styled.form`
   gap: 0.9rem;
   border-radius: 0.3rem;
   padding: 1.3rem;
-  margin: 2rem;
+  margin: 1.8rem;
   background-image: linear-gradient(-20deg, #194563 0%, #312f5d 100%);
   color: #dfdfdf;
 `;
