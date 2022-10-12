@@ -15,7 +15,7 @@ export default async function getAllAudio() {
 export async function getAudioById(audioId) {
   await dbConnect();
 
-  const audioFile = await Audio.findById(audioId);
+  const audioFile = await Audio.find({ id: audioId });
   const { id, src } = audioFile;
 
   return { id, src };

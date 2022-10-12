@@ -5,7 +5,6 @@ import { toast } from 'react-toastify';
 export default function CloudinaryUpload({ onAddAudio }) {
   const [audio, setAudio] = useState(null);
   const [audioValue, setAudioValue] = useState('');
-  const [audioFiles, setAudioFiles] = useState([]);
 
   return (
     <>
@@ -51,20 +50,14 @@ export default function CloudinaryUpload({ onAddAudio }) {
             src: json.secure_url,
           };
 
-          setAudioFiles([
-            ...audioFiles,
-            {
-              newAudio,
-            },
-          ]);
-
-          await fetch('/api/audioFiles/create', {
+          const response_ = await fetch('/api/audioFiles/create', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newAudio),
           });
+          const fileInDB = await response_.json();
 
-          onAddAudio(newAudio);
+          onAddAudio(fileInDB);
         }}
       >
         <label htmlFor="file">Select your audio file here : </label>

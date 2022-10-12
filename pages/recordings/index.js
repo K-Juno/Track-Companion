@@ -29,14 +29,12 @@ export default function Recordings({ audio }) {
     setAudioList([newAudio, ...audioList]);
   }
 
-  const [audioFileList, setAudioFileList] = useState(audioList);
-
   async function removeAudio(id) {
     await fetch(`/api/audioFiles/${id}`, {
       method: 'DELETE',
     });
-    setAudioFileList(
-      audioFileList.filter((audioFile) => {
+    setAudioList(
+      audioList.filter((audioFile) => {
         return audioFile.id !== id;
       })
     );

@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   if (req.method === 'DELETE') {
     const { id } = req.query;
 
-    await Audio.findByIdAndDelete(id);
+    await Audio.findOneAndDelete({ id: id });
 
     res.status(200).json({ message: 'Audio deleted.' });
   }
