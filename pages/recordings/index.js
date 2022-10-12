@@ -3,15 +3,18 @@ import {
   SubTitleContainer,
   SubTitle,
   ListContainer,
+  RemoveButton,
 } from '../../components/Styling';
 import CloudinaryUpload from '../../components/Cloudinary';
 import styled from 'styled-components';
 import getAllAudio from '../../services/audioService';
 import { useState } from 'react';
+import Image from 'next/image';
+import trashIcon from '../../public/trash-icon.png';
 
 export async function getServerSideProps() {
   const audio = await getAllAudio();
-  console.log(audio);
+
   return {
     props: {
       audio,
@@ -24,6 +27,19 @@ export default function Recordings({ audio }) {
 
   function handleAddAudio(newAudio) {
     setAudioList([newAudio, ...audioList]);
+  }
+
+  const [audioFileList, setAudioFileList] = useState(audioList);
+
+  async function removeAudio(id) {
+    await fetch(`/api/audioFiles/${id}`, {
+      method: 'DELETE',
+    });
+    setAudioFileList(
+      audioFileList.filter((audioFile) => {
+        return audioFile.id !== id;
+      })
+    );
   }
 
   return (
@@ -40,6 +56,9 @@ export default function Recordings({ audio }) {
               <Video controls autoplay name="media">
                 <source src={audioFile.src} type="audio/mpeg" />
               </Video>
+              <RemoveButton onClick={() => removeAudio(audioFile.id)}>
+                <Image alt="trash icon" layout="responsive" src={trashIcon} />
+              </RemoveButton>
             </ListItem>
           </>
         ))}
