@@ -76,6 +76,7 @@ const LyricsTitle = styled.a`
   color: #dfdfdf;
   background-color: #1b4362;
   cursor: pointer;
+  font-size: 0.9rem;
 
   &:hover {
     background-color: #436a89;

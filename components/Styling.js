@@ -52,6 +52,7 @@ export const SubSection = styled.div`
 export const CollectionLinkContainer = styled.div`
   display: flex;
   align-items: center;
+  font-size: 0.9rem;
 `;
 
 export const CollectionLink = styled.a`

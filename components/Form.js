@@ -58,7 +58,7 @@ export default function Form({ onAddLyrics, id }) {
   return (
     <>
       <InputForm onSubmit={handleSubmit}>
-        Start creating your first idea :
+        Enter your own lyrics here :
         <div>
           <label htmlFor="title">Title : </label>
           <TitleField

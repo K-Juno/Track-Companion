@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <Title>Songwriting App</Title>
-      <LandingPage></LandingPage>
+      <LandingPage />
     </>
   );
 }

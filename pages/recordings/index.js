@@ -52,7 +52,7 @@ export default function Recordings({ audio }) {
           alt="composer illustration"
           layout="responsive"
           src={compose}
-          height={75}
+          height={85}
           width="auto"
         />
         <img
@@ -60,7 +60,7 @@ export default function Recordings({ audio }) {
           layout="responsive"
           src={recording}
           height="auto"
-          width={130}
+          width={150}
         />
       </ImageContainer>
       <SubTitleContainer>
@@ -94,4 +94,5 @@ const ImageContainer = styled.div`
   justify-content: center;
   gap: 1rem;
   align-items: flex-end;
+  margin: 0.8rem 0 2.5rem 0;
 `;
