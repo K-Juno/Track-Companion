@@ -1,22 +1,25 @@
 import Link from 'next/link';
 import styled from 'styled-components';
+import { useRouter } from 'next/router';
 
 export default function Nav() {
+  const router = useRouter();
+
   return (
     <NavContainer>
       <nav>
-        <Link href="/">
-          <NavTag>Home</NavTag>
+        <Link href="/" passHref>
+          <NavTag pathname={router.pathname}>Home</NavTag>
         </Link>
       </nav>
       <nav>
-        <Link href="/lyrics">
-          <NavTag>Lyrics</NavTag>
+        <Link href="/lyrics" passHref>
+          <NavTag pathname={router.pathname}>Lyrics</NavTag>
         </Link>
       </nav>
       <nav>
-        <Link href="/recordings">
-          <NavTag>Recordings</NavTag>
+        <Link href="/recordings" passHref>
+          <NavTag pathname={router.pathname}>Recordings</NavTag>
         </Link>
       </nav>
     </NavContainer>
@@ -34,11 +37,12 @@ const NavTag = styled.a`
   text-decoration: none;
   border-radius: 0.2rem;
   padding: 0.5rem;
-  background-color: #507d96;
-  color: #dfdfdf;
+  color: ${(props) => (props.href === props.pathname ? '#343434' : '#dfdfdf')};
   cursor: pointer;
+  background-color: ${(props) =>
+    props.href === props.pathname ? '#81d8c7' : '#507d96'};
 
   &:hover {
-    background-color: #6791ab;
+    background-color: #97b7cb;
   }
 `;

@@ -3,14 +3,17 @@ import {
   SubTitleContainer,
   SubTitle,
   ListContainer,
+  ListItem,
   RemoveButton,
 } from '../../components/Styling';
 import CloudinaryUpload from '../../components/Cloudinary';
 import styled from 'styled-components';
 import getAllAudio from '../../services/audioService';
 import { useState } from 'react';
+import trashIcon from '../../public/icon-trash.svg';
+import compose from '../../public/compose.svg';
+import recording from '../../public/audio.svg';
 import Image from 'next/image';
-import trashIcon from '../../public/trash-icon.png';
 
 export async function getServerSideProps() {
   const audio = await getAllAudio();
@@ -44,6 +47,26 @@ export default function Recordings({ audio }) {
     <>
       <PageTitle>Recordings</PageTitle>
       <CloudinaryUpload onAddAudio={handleAddAudio} />
+      <ImageContainer>
+        <Pic1>
+          <Image
+            alt="composer illustration"
+            layout="responsive"
+            src={compose}
+            height={85}
+            width={70}
+          />
+        </Pic1>
+        <Pic2>
+          <Image
+            alt="recording illustration"
+            layout="responsive"
+            src={recording}
+            height={85}
+            width={100}
+          />
+        </Pic2>
+      </ImageContainer>
       <SubTitleContainer>
         <SubTitle>Your awesome collection</SubTitle>
       </SubTitleContainer>
@@ -55,7 +78,15 @@ export default function Recordings({ audio }) {
                 <source src={audioFile.src} type="audio/mpeg" />
               </Video>
               <RemoveButton onClick={() => removeAudio(audioFile.id)}>
-                <Image alt="trash icon" layout="responsive" src={trashIcon} />
+                <Trash>
+                  <Image
+                    alt="trash icon"
+                    layout="responsive"
+                    src={trashIcon}
+                    height={100}
+                    width={100}
+                  />
+                </Trash>
               </RemoveButton>
             </ListItem>
           </>
@@ -66,12 +97,26 @@ export default function Recordings({ audio }) {
 }
 
 const Video = styled.video`
-  height: 55px;
-  width: 300px;
+  height: 30px;
+  width: 210px;
 `;
 
-const ListItem = styled.li`
+const ImageContainer = styled.div`
   display: flex;
-  align-items: center;
+  justify-content: center;
   gap: 1rem;
+`;
+
+const Pic1 = styled.div`
+  height: 6rem;
+  width: 5rem;
+`;
+
+const Pic2 = styled.div`
+  height: 6rem;
+  width: 8rem;
+`;
+
+const Trash = styled.div`
+  width: 1.3rem;
 `;

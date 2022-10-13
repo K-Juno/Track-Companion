@@ -1,8 +1,6 @@
 import Link from 'next/link';
-import styled from 'styled-components';
 import getAllLyrics from '../../../services/lyricsService';
-import Image from 'next/image';
-import trashIcon from '../../../public/trash-icon.png';
+import trashIcon from '../../../public/icon-trash.svg';
 import { useState } from 'react';
 import {
   PageTitle,
@@ -10,9 +8,12 @@ import {
   SubTitle,
   BackLink,
   ListContainer,
+  ListItem,
   LinkContainer,
   RemoveButton,
 } from '../../../components/Styling';
+import styled from 'styled-components';
+import Image from 'next/image';
 
 export async function getServerSideProps() {
   const lyrics = await getAllLyrics();
@@ -52,7 +53,15 @@ export default function Collection({ lyrics }) {
                 <LyricsTitle>&quot;{song.title}&quot;</LyricsTitle>
               </Link>
               <RemoveButton onClick={() => removeLyrics(song.id)}>
-                <Image alt="trash icon" layout="responsive" src={trashIcon} />
+                <Trash>
+                  <Image
+                    alt="trash icon"
+                    layout="responsive"
+                    src={trashIcon}
+                    height={100}
+                    width={100}
+                  />
+                </Trash>
               </RemoveButton>
             </ListItem>
           </>
@@ -67,12 +76,6 @@ export default function Collection({ lyrics }) {
   );
 }
 
-const ListItem = styled.li`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-`;
-
 const LyricsTitle = styled.a`
   text-decoration: none;
   padding: 0.6rem;
@@ -81,8 +84,13 @@ const LyricsTitle = styled.a`
   color: #dfdfdf;
   background-color: #1b4362;
   cursor: pointer;
+  font-size: 0.9rem;
 
   &:hover {
     background-color: #436a89;
   }
+`;
+
+const Trash = styled.div`
+  width: 1.3rem;
 `;

@@ -23,7 +23,7 @@ const LyricsContainer = styled.div`
 
 const NewTitle = styled.h4`
   padding: 0.3rem;
-  margin: 1.3rem 1.8rem 0 1.8rem;
+  margin: 2.3rem 1.8rem 0 1.8rem;
   border-radius: 0.2rem;
   color: #dfdfdf;
   background-color: #1b4362;

@@ -21,7 +21,7 @@ export default function CloudinaryUpload({ onAddAudio }) {
           if (audioValue === '') {
             toast('You haven`t selected a file!', {
               hideProgressBar: true,
-              autoClose: 1000,
+              autoClose: 500,
               type: 'info',
               position: 'top-center',
             });
@@ -85,7 +85,7 @@ const UploadForm = styled.form`
   gap: 0.9rem;
   border-radius: 0.3rem;
   padding: 1.3rem;
-  margin: 1.8rem;
+  margin: 1.8rem 1.8rem 0 1.8rem;
   background-image: linear-gradient(-20deg, #194563 0%, #312f5d 100%);
   color: #dfdfdf;
 `;

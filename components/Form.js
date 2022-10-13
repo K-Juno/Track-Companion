@@ -20,7 +20,7 @@ export default function Form({ onAddLyrics, id }) {
     if (title.length < 1) {
       toast('Your Title is empty!', {
         hideProgressBar: true,
-        autoClose: 1000,
+        autoClose: 500,
         type: 'info',
         position: 'top-center',
       });
@@ -30,7 +30,7 @@ export default function Form({ onAddLyrics, id }) {
     if (lyrics.length < 1) {
       toast('Your Songtext is empty!', {
         hideProgressBar: true,
-        autoClose: 1000,
+        autoClose: 500,
         type: 'info',
         position: 'top-center',
       });
@@ -58,7 +58,7 @@ export default function Form({ onAddLyrics, id }) {
   return (
     <>
       <InputForm onSubmit={handleSubmit}>
-        Start creating your first idea :
+        Enter your own lyrics here :
         <div>
           <label htmlFor="title">Title : </label>
           <TitleField
@@ -93,7 +93,7 @@ const InputForm = styled.form`
   gap: 0.9rem;
   border-radius: 0.3rem;
   padding: 1.3rem;
-  margin: 1.8rem;
+  margin: 0 1.8rem 1.8rem 1.8rem;
   background-image: linear-gradient(-20deg, #194563 0%, #312f5d 100%);
   color: #dfdfdf;
 `;
@@ -113,6 +113,7 @@ const LyricsField = styled.textarea`
   width: 15rem;
   height: 15rem;
   border-radius: 0.2rem;
+  background-image: linear-gradient(-20deg, #e6fff9 0%, #f5f1ff 100%);
 `;
 
 const Button = styled.button`
