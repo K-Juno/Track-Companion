@@ -105,7 +105,3 @@ export const RemoveButton = styled.button`
     border: 1px dotted #c6d5e2;
   }
 `;
-
-export const Trash = styled.img`
-  width: 1.3rem;
-`;

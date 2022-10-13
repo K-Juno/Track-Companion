@@ -11,9 +11,9 @@ import {
   ListItem,
   LinkContainer,
   RemoveButton,
-  Trash,
 } from '../../../components/Styling';
 import styled from 'styled-components';
+import Image from 'next/image';
 
 export async function getServerSideProps() {
   const lyrics = await getAllLyrics();
@@ -53,7 +53,15 @@ export default function Collection({ lyrics }) {
                 <LyricsTitle>&quot;{song.title}&quot;</LyricsTitle>
               </Link>
               <RemoveButton onClick={() => removeLyrics(song.id)}>
-                <Trash alt="trash icon" layout="responsive" src={trashIcon} />
+                <Trash>
+                  <Image
+                    alt="trash icon"
+                    layout="responsive"
+                    src={trashIcon}
+                    height={100}
+                    width={100}
+                  />
+                </Trash>
               </RemoveButton>
             </ListItem>
           </>
@@ -81,4 +89,8 @@ const LyricsTitle = styled.a`
   &:hover {
     background-color: #436a89;
   }
+`;
+
+const Trash = styled.div`
+  width: 1.3rem;
 `;

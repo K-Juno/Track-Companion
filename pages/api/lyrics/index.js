@@ -1,4 +1,4 @@
-import { getAllLyrics } from '../../../services/cardsService';
+import { getAllLyrics } from '../../../services/lyricsService';
 
 export default async function handler(request, response) {
   if (request.method === 'GET') {

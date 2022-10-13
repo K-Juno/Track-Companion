@@ -5,7 +5,6 @@ import {
   ListContainer,
   ListItem,
   RemoveButton,
-  Trash,
 } from '../../components/Styling';
 import CloudinaryUpload from '../../components/Cloudinary';
 import styled from 'styled-components';
@@ -14,6 +13,7 @@ import { useState } from 'react';
 import trashIcon from '../../public/icon-trash.svg';
 import compose from '../../public/compose.svg';
 import recording from '../../public/audio.svg';
+import Image from 'next/image';
 
 export async function getServerSideProps() {
   const audio = await getAllAudio();
@@ -48,20 +48,24 @@ export default function Recordings({ audio }) {
       <PageTitle>Recordings</PageTitle>
       <CloudinaryUpload onAddAudio={handleAddAudio} />
       <ImageContainer>
-        <img
-          alt="composer illustration"
-          layout="responsive"
-          src={compose}
-          height={85}
-          width="auto"
-        />
-        <img
-          alt="recording illustration"
-          layout="responsive"
-          src={recording}
-          height="auto"
-          width={150}
-        />
+        <Pic1>
+          <Image
+            alt="composer illustration"
+            layout="responsive"
+            src={compose}
+            height={85}
+            width={70}
+          />
+        </Pic1>
+        <Pic2>
+          <Image
+            alt="recording illustration"
+            layout="responsive"
+            src={recording}
+            height={85}
+            width={100}
+          />
+        </Pic2>
       </ImageContainer>
       <SubTitleContainer>
         <SubTitle>Your awesome collection</SubTitle>
@@ -74,7 +78,15 @@ export default function Recordings({ audio }) {
                 <source src={audioFile.src} type="audio/mpeg" />
               </Video>
               <RemoveButton onClick={() => removeAudio(audioFile.id)}>
-                <Trash alt="trash icon" layout="responsive" src={trashIcon} />
+                <Trash>
+                  <Image
+                    alt="trash icon"
+                    layout="responsive"
+                    src={trashIcon}
+                    height={100}
+                    width={100}
+                  />
+                </Trash>
               </RemoveButton>
             </ListItem>
           </>
@@ -93,6 +105,18 @@ const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 1rem;
-  align-items: flex-end;
-  margin: 0.8rem 0 2.5rem 0;
+`;
+
+const Pic1 = styled.div`
+  height: 6rem;
+  width: 5rem;
+`;
+
+const Pic2 = styled.div`
+  height: 6rem;
+  width: 8rem;
+`;
+
+const Trash = styled.div`
+  width: 1.3rem;
 `;

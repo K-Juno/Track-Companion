@@ -5,6 +5,7 @@ import { getLyricsById } from '../../../services/lyricsService';
 import { BackLink, LinkContainer } from '../../../components/Styling';
 import pencilIcon from '../../../public/icon-pencil.svg';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 export async function getServerSideProps(context) {
   const { id } = context.params;
@@ -27,7 +28,15 @@ export default function SongLyrics({ song }) {
   return (
     <>
       <EditButton onClick={() => updateLyrics(song.id)}>
-        <Pencil alt="edit-pen icon" layout="responsive" src={pencilIcon} />
+        <Pencil>
+          <Image
+            alt="edit-pen icon"
+            layout="responsive"
+            src={pencilIcon}
+            height={100}
+            width={100}
+          />
+        </Pencil>
       </EditButton>
       <SongCard key={song.id} title={song.title} lyrics={song.lyrics} />
       <LinkContainer>
@@ -60,6 +69,6 @@ const EditButton = styled.button`
   }
 `;
 
-const Pencil = styled.img`
+const Pencil = styled.div`
   width: 2.5rem;
 `;

@@ -7,7 +7,9 @@ import {
 } from '../../../components/Styling';
 import UpdateForm from '../../../components/UpdateForm';
 import { getLyricsById } from '../../../services/lyricsService';
+import styled from 'styled-components';
 import writer from '../../../public/writer.svg';
+import Image from 'next/image';
 
 export async function getServerSideProps(context) {
   const { id } = context.params;
@@ -25,13 +27,15 @@ export default function UpdateLyrics({ onChangeValues, song }) {
     <>
       <PageTitle>Lyrics</PageTitle>
       <SubSection>
-        <img
-          alt="girl with docs illustration"
-          layout="responsive"
-          src={writer}
-          height={100}
-          width={100}
-        />
+        <Pic>
+          <Image
+            alt="writer illustration"
+            layout="responsive"
+            src={writer}
+            height={100}
+            width={100}
+          />
+        </Pic>
         <CollectionLinkContainer>
           <span>Go to →</span>
           <Link href="/lyrics/collection">
@@ -47,3 +51,8 @@ export default function UpdateLyrics({ onChangeValues, song }) {
     </>
   );
 }
+
+const Pic = styled.div`
+  width: 5rem;
+  height: 5rem;
+`;
