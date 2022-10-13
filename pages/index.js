@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 import LandingPage from '../components/LandingPage';
+import Foot from '../components/Foot';
 
 export default function Home() {
   return (
     <>
       <Title>Songwriting App</Title>
       <LandingPage />
+      <Foot />
     </>
   );
 }
