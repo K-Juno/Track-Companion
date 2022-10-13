@@ -1,8 +1,6 @@
 import Link from 'next/link';
-import styled from 'styled-components';
 import getAllLyrics from '../../../services/lyricsService';
-import Image from 'next/image';
-import trashIcon from '../../../public/trash-icon.png';
+import trashIcon from '../../../public/icon-trash.svg';
 import { useState } from 'react';
 import {
   PageTitle,
@@ -10,9 +8,12 @@ import {
   SubTitle,
   BackLink,
   ListContainer,
+  ListItem,
   LinkContainer,
   RemoveButton,
+  Trash,
 } from '../../../components/Styling';
+import styled from 'styled-components';
 
 export async function getServerSideProps() {
   const lyrics = await getAllLyrics();
@@ -52,7 +53,7 @@ export default function Collection({ lyrics }) {
                 <LyricsTitle>&quot;{song.title}&quot;</LyricsTitle>
               </Link>
               <RemoveButton onClick={() => removeLyrics(song.id)}>
-                <Image alt="trash icon" layout="responsive" src={trashIcon} />
+                <Trash alt="trash icon" layout="responsive" src={trashIcon} />
               </RemoveButton>
             </ListItem>
           </>
@@ -66,12 +67,6 @@ export default function Collection({ lyrics }) {
     </>
   );
 }
-
-const ListItem = styled.li`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-`;
 
 const LyricsTitle = styled.a`
   text-decoration: none;

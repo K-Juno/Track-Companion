@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import SongCard from '../../../components/SongCard';
 import { getLyricsById } from '../../../services/lyricsService';
 import { BackLink, LinkContainer } from '../../../components/Styling';
-import Image from 'next/image';
-import pencilIcon from '../../../public/pencil-icon.png';
+import pencilIcon from '../../../public/icon-pencil.svg';
 import { useRouter } from 'next/router';
 
 export async function getServerSideProps(context) {
@@ -28,7 +27,7 @@ export default function SongLyrics({ song }) {
   return (
     <>
       <EditButton onClick={() => updateLyrics(song.id)}>
-        <Image alt="edit-pen icon" layout="responsive" src={pencilIcon} />
+        <Pencil alt="edit-pen icon" layout="responsive" src={pencilIcon} />
       </EditButton>
       <SongCard key={song.id} title={song.title} lyrics={song.lyrics} />
       <LinkContainer>
@@ -43,16 +42,24 @@ export default function SongLyrics({ song }) {
 const EditButton = styled.button`
   border: 0;
   background-color: transparent;
-  border-radius: 15px;
+  border-radius: 23px;
   padding: 3px;
-  width: 2.2rem;
+  width: 3rem;
+  height: 3rem;
   cursor: pointer;
   position: absolute;
-  top: 7.3rem;
-  right: 3.5rem;
+  top: 7.5rem;
+  right: 3.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     background-color: #daecfb;
     border: 1px dotted #c6d5e2;
   }
+`;
+
+const Pencil = styled.img`
+  width: 2.5rem;
 `;
