@@ -5,7 +5,7 @@ import Foot from '../components/Foot';
 export default function Home() {
   return (
     <>
-      <Title>Songwriting App</Title>
+      <Title>Track Companion</Title>
       <LandingPage />
       <Foot />
     </>
