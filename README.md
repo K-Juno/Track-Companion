@@ -23,3 +23,7 @@ Feel free to check out the [Vercel Deployment](https://track-companion.vercel.ap
 ## Tech Stack
 
 Next JS | React | Styled Components | MongoDB | Mongoose | Cloudinary | Toastify | Vercel
+
+## Illustrations
+
+Awesome open-source illustrations from [unDraw](https://undraw.co/) by [Katerina Limpitsouni](https://twitter.com/ninaLimpi).
