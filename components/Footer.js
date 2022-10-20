@@ -17,17 +17,18 @@ export default function Footer() {
 }
 
 const Foot = styled.footer`
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   padding: 0.5rem;
   text-align: center;
-  background: ${(props) => (props.pathname == '/' ? '#302f5c' : 'transparent')};
+  background: ${(props) => (props.pathname == '/' ? '#1E4153' : 'transparent')};
   color: ${(props) => (props.pathname == '/' ? '#dfdfdf' : 'transparent')};
 
   &:hover {
-    background: #302f5c;
+    background: #1e4153;
     color: #dfdfdf;
+    transition: background-color 1s ease-out 20ms;
   }
 `;
 

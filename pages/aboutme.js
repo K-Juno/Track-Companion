@@ -71,6 +71,7 @@ const WelcomeHeader = styled.div`
 
 const Header1 = styled(SubHeader)`
   font-size: 1.5rem;
+  color: #1e4153;
   margin: 2rem 0 1rem 0;
 `;
 

@@ -37,10 +37,10 @@ const NavTag = styled.a`
   text-decoration: none;
   border-radius: 0.2rem;
   padding: 0.5rem;
-  color: ${(props) => (props.href === props.pathname ? '#343434' : '#dfdfdf')};
   cursor: pointer;
   background-color: ${(props) =>
     props.href === props.pathname ? '#81d8c7' : '#507d96'};
+  color: ${(props) => (props.href === props.pathname ? '#343434' : '#dfdfdf')};
 
   &:hover {
     background-color: #97b7cb;
