@@ -64,9 +64,10 @@ export default function AboutMe() {
 
 const WelcomeHeader = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   position: relative;
+  margin-top: 1rem;
 `;
 
 const Header1 = styled(SubHeader)`
