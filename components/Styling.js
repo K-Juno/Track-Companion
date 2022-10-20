@@ -88,6 +88,11 @@ export const BackLink = styled.a`
   }
 `;
 
+export const Pic = styled.div`
+  width: 5rem;
+  height: 5rem;
+`;
+
 export const RemoveButton = styled.button`
   border: 0;
   background-color: transparent;

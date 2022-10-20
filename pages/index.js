@@ -1,13 +1,11 @@
 import styled from 'styled-components';
 import LandingPage from '../components/LandingPage';
-import Foot from '../components/Foot';
 
 export default function Home() {
   return (
     <>
       <Title>Track Companion</Title>
       <LandingPage />
-      <Foot />
     </>
   );
 }

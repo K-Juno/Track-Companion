@@ -19,9 +19,9 @@ export default function LandingPage() {
             />
           </Pic1>
         </Link>
-        <Text1>Start Creating Your Lyrics!</Text1>
+        <Text1>Start Creating Your Lyrics !</Text1>
         <Text2>OR</Text2>
-        <Text3>Start Uploading Your Recordings!</Text3>
+        <Text3>Start Uploading Your Recordings !</Text3>
         <Link href="/recordings" passHref>
           <Pic2>
             <Image
@@ -59,17 +59,10 @@ const Pic1 = styled.div`
   }
 `;
 
-const Pic2 = styled.div`
+const Pic2 = styled(Pic1)`
   align-self: flex-end;
   margin-left: 0;
   width: 13rem;
-  cursor: pointer;
-
-  &:hover {
-    background-image: linear-gradient(-20deg, #f0eaff 0%, #e6fff9 100%);
-    border: 1px dotted #c6d5e2;
-    border-radius: 1rem;
-  }
 `;
 
 const Text1 = styled.p`
