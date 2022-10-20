@@ -21,7 +21,7 @@ export default function AboutMe() {
       </WelcomeHeader>
       <PageContainer>
         <Epilogue>
-          I'm Juni! Thanks for stopping by!
+          I&apos;m Juni! Thanks for stopping by!
           <br />
           <br />
           I feel humbled in this great big world full of coding experts, but am
@@ -36,14 +36,22 @@ export default function AboutMe() {
         <OrderedList>
           <li>
             To my coaches &amp; classmates at the{' '}
-            <Highlight href="https://www.neuefische.de" target="_blank">
+            <Highlight
+              href="https://www.neuefische.de"
+              target="_blank"
+              rel="noreferrer"
+            >
               neuefische
             </Highlight>{' '}
             Web Dev Bootcamp!
           </li>
           <li>
             Neat open-source illustrations from{' '}
-            <Highlight href="https://undraw.co" target="_blank">
+            <Highlight
+              href="https://undraw.co"
+              target="_blank"
+              rel="noreferrer"
+            >
               unDraw
             </Highlight>
             !

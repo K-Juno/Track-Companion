@@ -11,7 +11,7 @@ export default function Contact() {
       <SubHeader>please feel free to reach out :</SubHeader>
       <UnorderedList>
         <li>
-          <a href="https://github.com/K-Juno" target="_blank">
+          <a href="https://github.com/K-Juno" target="_blank" rel="noreferrer">
             <Icon>
               <Image
                 alt="GitHub"
@@ -28,6 +28,7 @@ export default function Contact() {
           <a
             href="https://www.linkedin.com/in/juni-ko-b35395179"
             target="_blank"
+            rel="noreferrer"
           >
             <Icon>
               <Image
@@ -42,7 +43,7 @@ export default function Contact() {
         </li>
         |
         <li>
-          <a href="mailto:juno1803@gmail.com" target="_blank">
+          <a href="mailto:juno1803@gmail.com" target="_blank" rel="noreferrer">
             <Icon>
               <Image
                 alt="Email"
@@ -56,7 +57,11 @@ export default function Contact() {
         </li>
         |
         <li>
-          <a href="https://www.instagram.com/juno.juni.june" target="_blank">
+          <a
+            href="https://www.instagram.com/juno.juni.june"
+            target="_blank"
+            rel="noreferrer"
+          >
             <Icon>
               <Image
                 alt="Instagram"
