@@ -5,8 +5,8 @@ import {
   SubSection,
   CollectionLink,
   CollectionLinkContainer,
+  Pic,
 } from '../../components/Styling';
-import styled from 'styled-components';
 import writer from '../../public/writer.svg';
 import Image from 'next/image';
 
@@ -35,8 +35,3 @@ export default function Lyrics({ onAddLyrics }) {
     </>
   );
 }
-
-const Pic = styled.div`
-  width: 5rem;
-  height: 5rem;
-`;

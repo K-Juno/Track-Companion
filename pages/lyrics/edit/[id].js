@@ -4,6 +4,7 @@ import {
   SubSection,
   CollectionLink,
   CollectionLinkContainer,
+  Pic,
 } from '../../../components/Styling';
 import UpdateForm from '../../../components/UpdateForm';
 import { getLyricsById } from '../../../services/lyricsService';
@@ -51,8 +52,3 @@ export default function UpdateLyrics({ onChangeValues, song }) {
     </>
   );
 }
-
-const Pic = styled.div`
-  width: 5rem;
-  height: 5rem;
-`;

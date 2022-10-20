@@ -112,8 +112,7 @@ const Pic1 = styled.div`
   width: 5rem;
 `;
 
-const Pic2 = styled.div`
-  height: 6rem;
+const Pic2 = styled(Pic1)`
   width: 8rem;
 `;
 
