@@ -114,6 +114,7 @@ const LyricsTitle = styled.a`
   border-radius: 0.3rem;
   cursor: pointer;
   font-size: 0.9rem;
+  color: #1e4153;
 `;
 
 const RemoveButton = styled.button`
