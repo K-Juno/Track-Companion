@@ -8,7 +8,6 @@ import {
 } from '../../../components/Styling';
 import UpdateForm from '../../../components/UpdateForm';
 import { getLyricsById } from '../../../services/lyricsService';
-import styled from 'styled-components';
 import writer from '../../../public/writer.svg';
 import Image from 'next/image';
 
