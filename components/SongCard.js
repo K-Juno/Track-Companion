@@ -15,7 +15,6 @@ const LyricsContainer = styled.div`
   align-items: center;
   text-align: center;
   background-image: linear-gradient(-20deg, #e1eeff 0%, #f4ffff 100%);
-  margin: 3rem 3rem 1rem 3rem;
   border-radius: 1rem;
   box-shadow: 10px 10px 12px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
@@ -30,13 +29,21 @@ const NewTitle = styled.h4`
 `;
 
 const NewText = styled.p`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+  min-height: 18rem;
   padding: 1rem;
   background-color: #f6f8ff;
-  max-width: 14.5rem;
   margin: 2rem 0 1rem 0;
   font-size: 14px;
   border-radius: 0.4rem;
   word-break: break-word;
   color: #dfdfdf;
   background-color: #1b4362;
+
+  @media (min-width: 768px) {
+    min-width: 19rem;
+  }
 `;

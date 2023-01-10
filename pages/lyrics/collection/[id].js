@@ -27,7 +27,7 @@ export default function SongLyrics({ song }) {
 
   return (
     <>
-      <EditContainer>
+      <CardContainer>
         <EditButton onClick={() => updateLyrics(song.id)}>
           <Pencil>
             <Image
@@ -39,8 +39,8 @@ export default function SongLyrics({ song }) {
             />
           </Pencil>
         </EditButton>
-      </EditContainer>
-      <SongCard key={song.id} title={song.title} lyrics={song.lyrics} />
+        <SongCard key={song.id} title={song.title} lyrics={song.lyrics} />
+      </CardContainer>
       <LinkContainer>
         <Link href="/lyrics/collection">
           <BackLink>go back</BackLink>
@@ -50,8 +50,13 @@ export default function SongLyrics({ song }) {
   );
 }
 
-const EditContainer = styled.div`
+const CardContainer = styled.div`
   position: relative;
+  margin: 3rem 3rem 1rem 3rem;
+
+  @media (min-width: 768px) {
+    margin: 3rem 0 1rem 0;
+  }
 `;
 
 const EditButton = styled.button`
@@ -64,7 +69,7 @@ const EditButton = styled.button`
   cursor: pointer;
   position: absolute;
   top: 0.8rem;
-  right: 3.8rem;
+  right: 0.8rem;
   display: flex;
   align-items: center;
   justify-content: center;

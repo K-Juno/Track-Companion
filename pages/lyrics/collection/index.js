@@ -7,10 +7,7 @@ import {
   SubTitleContainer,
   SubTitle,
   BackLink,
-  ListContainer,
-  ListItem,
   LinkContainer,
-  RemoveButton,
 } from '../../../components/Styling';
 import styled from 'styled-components';
 import Image from 'next/image';
@@ -76,18 +73,67 @@ export default function Collection({ lyrics }) {
   );
 }
 
+const ListContainer = styled.ul`
+  list-style: none;
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  padding: 0;
+  gap: 0.8rem;
+  
+  @media (min-width: 400px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+`;
+
+const ListItem = styled.li`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 10rem;
+  height: 10rem;
+  border: 1px solid #7e8e96;
+  background-color: #f7fffc;
+  border-radius: 0.2rem;
+  position: relative;
+  
+  &:hover {
+    background-image: linear-gradient(-20deg, #f0eaff 0%, #e6fff9 100%);
+  }
+`;
+
 const LyricsTitle = styled.a`
   text-decoration: none;
   padding: 0.6rem;
   width: fit-content;
   border-radius: 0.3rem;
-  color: #dfdfdf;
-  background-color: #1b4362;
   cursor: pointer;
   font-size: 0.9rem;
+`;
+
+const RemoveButton = styled.button`
+  border: 0;
+  background-color: transparent;
+  border-radius: 15px;
+  padding: 5px;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  position: absolute;
+  bottom: 0.1rem;
+  right: 0.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
-    background-color: #436a89;
+    background-color: #daecfb;
+    border: 1px dotted #c6d5e2;
   }
 `;
 

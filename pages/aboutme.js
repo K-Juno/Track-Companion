@@ -29,7 +29,6 @@ export default function AboutMe() {
           my final project for my Coding Bootcamp.
           <br />
           <br />
-          Since no app is ever finished, this one will henceworth evolve, too.{' '}
         </Epilogue>
         <Contact />
         <SubHeader>quick thank you :</SubHeader>
@@ -76,7 +75,7 @@ const Header1 = styled(SubHeader)`
   margin: 2rem 0 1rem 0;
 `;
 
-export const IconPic = styled.div`
+const IconPic = styled.div`
   width: 7.5rem;
   position: absolute;
   right: 0rem;
