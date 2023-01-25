@@ -80,7 +80,7 @@ const ListContainer = styled.ul`
   justify-items: center;
   padding: 0;
   gap: 0.8rem;
-  
+
   @media (min-width: 400px) {
     grid-template-columns: 1fr 1fr;
   }
@@ -101,7 +101,7 @@ const ListItem = styled.li`
   background-color: #f7fffc;
   border-radius: 0.2rem;
   position: relative;
-  
+
   &:hover {
     background-image: linear-gradient(-20deg, #f0eaff 0%, #e6fff9 100%);
   }
