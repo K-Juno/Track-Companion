@@ -22,6 +22,8 @@ export async function getServerSideProps(context) {
   };
 }
 
+UpdateLyrics.title = 'Track Companion | Edit Lyrics';
+
 export default function UpdateLyrics({ onChangeValues, song }) {
   return (
     <>

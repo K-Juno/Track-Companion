@@ -4,6 +4,8 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import webdev from '../public/webdev.svg';
 
+AboutMe.title = 'Track Companion | About Me';
+
 export default function AboutMe() {
   return (
     <>
