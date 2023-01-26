@@ -24,6 +24,8 @@ export async function getServerSideProps() {
   };
 }
 
+Recordings.title = 'Track Companion | Recordings';
+
 export default function Recordings({ audio }) {
   const [audioList, setAudioList] = useState(audio);
 

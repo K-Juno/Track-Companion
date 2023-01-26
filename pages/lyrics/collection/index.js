@@ -22,6 +22,8 @@ export async function getServerSideProps() {
   };
 }
 
+Collection.title = 'Track Companion | Lyrics Collection';
+
 export default function Collection({ lyrics }) {
   const [lyricsList, setLyricsList] = useState(lyrics);
 

@@ -18,6 +18,8 @@ export async function getServerSideProps(context) {
   };
 }
 
+SongLyrics.title = 'Track Companion | Song Lyrics';
+
 export default function SongLyrics({ song }) {
   const router = useRouter();
 

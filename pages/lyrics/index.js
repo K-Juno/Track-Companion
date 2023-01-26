@@ -10,6 +10,8 @@ import {
 import writer from '../../public/writer.svg';
 import Image from 'next/image';
 
+Lyrics.title = 'Track Companion | Lyrics';
+
 export default function Lyrics({ onAddLyrics }) {
   return (
     <>
