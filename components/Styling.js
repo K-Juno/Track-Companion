@@ -29,19 +29,6 @@ export const ListContainer = styled.ul`
   gap: 1rem;
 `;
 
-export const ListItem = styled.li`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  width: 90%;
-  border: 1px solid #7e8e96;
-  justify-content: center;
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
-  background-color: #f7fffc;
-  border-radius: 0.2rem;
-`;
-
 export const SubSection = styled.div`
   display: flex;
   align-items: center;
