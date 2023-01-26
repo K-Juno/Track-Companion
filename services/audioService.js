@@ -5,8 +5,8 @@ export default async function getAllAudio() {
   await dbConnect();
 
   const audio = await Audio.find();
-  const audioList = audio.map(({ id, src }) => {
-    return { id, src };
+  const audioList = audio.map(({ id, src, name }) => {
+    return { id, src, name };
   });
 
   return audioList;

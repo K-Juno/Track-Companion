@@ -3,7 +3,6 @@ import {
   SubTitleContainer,
   SubTitle,
   ListContainer,
-  ListItem,
   RemoveButton,
 } from '../../components/Styling';
 import CloudinaryUpload from '../../components/Cloudinary';
@@ -73,33 +72,31 @@ export default function Recordings({ audio }) {
       <ListContainer>
         {audioList.map((audioFile) => (
           <>
-            <ListItem key={audioFile.id}>
-              <Video controls autoplay name="media">
-                <source src={audioFile.src} type="audio/mpeg" />
-              </Video>
-              <RemoveButton onClick={() => removeAudio(audioFile.id)}>
-                <Trash>
-                  <Image
-                    alt="trash icon"
-                    layout="responsive"
-                    src={trashIcon}
-                    height={100}
-                    width={100}
-                  />
-                </Trash>
-              </RemoveButton>
-            </ListItem>
+            <ListObject key={audioFile.id}>
+              <p>title: {audioFile.name}</p>
+              <MediaPlayer>
+                <Video controls autoplay name="media">
+                  <source src={audioFile.src} type="audio/mpeg" />
+                </Video>
+                <RemoveButton onClick={() => removeAudio(audioFile.id)}>
+                  <Trash>
+                    <Image
+                      alt="trash icon"
+                      layout="responsive"
+                      src={trashIcon}
+                      height={100}
+                      width={100}
+                    />
+                  </Trash>
+                </RemoveButton>
+              </MediaPlayer>
+            </ListObject>
           </>
         ))}
       </ListContainer>
     </>
   );
 }
-
-const Video = styled.video`
-  height: 30px;
-  width: 210px;
-`;
 
 const ImageContainer = styled.div`
   display: flex;
@@ -114,6 +111,27 @@ const Pic1 = styled.div`
 
 const Pic2 = styled(Pic1)`
   width: 8rem;
+`;
+
+const ListObject = styled.li`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  border: 1px solid #7e8e96;
+  padding-bottom: 1rem;
+  background-color: #f7fffc;
+  border-radius: 0.2rem;
+`;
+
+const MediaPlayer = styled.div`
+  display: flex;
+  gap: 1rem;
+`;
+
+const Video = styled.video`
+  height: 30px;
+  width: 210px;
 `;
 
 const Trash = styled.div`

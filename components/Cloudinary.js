@@ -48,6 +48,7 @@ export default function CloudinaryUpload({ onAddAudio }) {
           const newAudio = {
             id: json.asset_id,
             src: json.secure_url,
+            name: json.original_filename,
           };
 
           const response_ = await fetch('/api/audioFiles/create', {
